@@ -1,0 +1,29 @@
+INSTALL.md
+  s_079560e47a0547::t_8e65381eb500a5 9
+.claude-plugin/plugin.json
+  s_8fc3a741b63d31::t_8cd9a11b7fb833 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "4a1f84c6c776da53b69292ec10fbc9849fdb8938",
+  "prompts": {},
+  "sessions": {
+    "s_079560e47a0547": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f60a4-1c61-7de3-8a1d-540dea6eca70",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    },
+    "s_8fc3a741b63d31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fee34fa-0d7b-4fec-af93-bd38ebfad33d",
+        "model": "unknown"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    }
+  }
+}
