@@ -1,0 +1,14 @@
+{
+  "name": "sladek-pravo",
+  "owner": {
+    "name": "GrowLead (Petr Rohan)",
+    "email": "petr@growlead.cz"
+  },
+  "plugins": [
+    {
+      "name": "sladek-pravo",
+      "source": "./",
+      "description": "AI plugin pro advokátní kancelář JUDr. Petr Sládek — generování a formátování smluv z vlastních vzorů, právní workflow (DirectCase), hloubkový research. Realitní právo a úschovy, ČR."
+    }
+  ]
+}

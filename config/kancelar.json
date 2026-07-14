@@ -1,0 +1,30 @@
+{
+  "_comment": "Konstanty kancelare. Hodnoty oznacene DOPLNTE vyplni /nastaveni-kancelare pri prvnim spusteni.",
+  "advokat": {
+    "jmeno": "JUDr. Petr Sládek",
+    "jmeno_gen": "JUDr. Petra Sládka",
+    "cak": "17678",
+    "ico": "062 36 359",
+    "sidlo": "Českobrodská 1174, 198 00 Praha 9",
+    "pdf_heslo": "DOPLNTE-heslo-pro-PDF-notifikace"
+  },
+  "uschova_default": {
+    "ucet": "DOPLNTE-ucet-uschovy",
+    "banka": "MONETA Money Bank, a.s."
+  },
+  "lhuty_default": {
+    "uhrada_doplatku": "deseti (10)",
+    "prodleni_odstoupeni": "sedmi (7)",
+    "predani": "deseti (10)",
+    "slozeni": "deseti (10)",
+    "podani_vkladu": "pěti (5)",
+    "marne_slozeni": "třiceti (30)",
+    "vraceni_listin": "deseti (10)",
+    "vyplata": "deseti (10)",
+    "vraceni_max": "šesti (6)"
+  },
+  "stejnopisy_default": {
+    "kupni-smlouva": "čtyřech (4)",
+    "smlouva-o-uschove": "třech (3)"
+  }
+}

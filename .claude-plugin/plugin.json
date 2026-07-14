@@ -1,0 +1,8 @@
+{
+  "name": "sladek-pravo",
+  "version": "0.1.0",
+  "description": "AI skilly pro advokátní kancelář JUDr. Petr Sládek — generování smluv z vlastních vzorů (kupní smlouva + advokátní úschova jako propojený pár), jednotné formátování dokumentů kanceláře. Realitní právo a úschovy, české právní prostředí.",
+  "author": {
+    "name": "GrowLead (Petr Rohan) pro AK Sládek"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "directcase": {
+      "type": "http",
+      "url": "https://mcp.directcase.ai",
+      "authType": "oauth"
+    },
+    "firecrawl": {
+      "type": "http",
+      "url": "https://mcp.firecrawl.dev/<VAS-FIRECRAWL-API-KLIC>/v2/mcp",
+      "_comment": "Scraping/čtení webu pro hloubkovy-research. Klíč: účet na firecrawl.dev (free tier stačí na start) — nahraďte <VAS-FIRECRAWL-API-KLIC>."
+    },
+    "exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp",
+      "authType": "oauth",
+      "_comment": "Neuronové vyhledávání pro hloubkovy-research. Přihlášení účtem exa.ai (OAuth)."
+    },
+    "ms365": {
+      "type": "http",
+      "url": "https://microsoft365.mcp.claude.com/mcp",
+      "_comment": "Outlook + OneDrive + Word (stack kanceláře)."
+    },
+    "docusign": {
+      "type": "http",
+      "url": "https://mcp.docusign.com/mcp",
+      "_comment": "Volitelné — elektronický podpis (kontrola-podpis skill). Alternativa: Signi."
+    }
+  }
+}
