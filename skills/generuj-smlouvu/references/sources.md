@@ -1,7 +1,7 @@
 # Research Sources — generuj-smlouvu
 
 ## 2026-07-14 — vznik skillu (research fáze legal vertikály)
-Kompletní research: `skills/legal/_podklady/research/` (01-zahranicni-landscape, 02-document-automation, 03-cz-patterns, 00-SYNTEZA, 04-analyza-vzoru).
+Kompletní research: `skills/legal/research/` (01-zahranicni-landscape, 02-document-automation, 03-cz-patterns, 00-SYNTEZA, 04-analyza-vzoru).
 
 Klíčové zdroje (reálně otevřené):
 - https://docxtpl.readthedocs.io/en/latest/ — docxtpl engine, {%p %} tagy, run-splitting

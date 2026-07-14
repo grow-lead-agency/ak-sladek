@@ -388,4 +388,4 @@ Eskalujte regulatorní vývoj na seniorního právníka nebo vedení, když:
 2. **Uveďte geografii** -- Požadavky na soulad se liší podle jurisdikce (ČR, EU, třetí země).
 3. **Zmiňte data** -- O jaké osobní údaje jde? To určuje většinu požadavků na soulad.
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

@@ -1,4 +1,4 @@
-# Instalace sladek-pravo do Claude (pro JUDr. Sládka)
+# Instalace ak-sladek do Claude (pro JUDr. Sládka)
 
 Plugin funguje v **Claude Cowork** (desktop aplikace Claude s režimem práce se soubory). Potřebuje prostředí, kde Claude umí spouštět kód (generování Wordu).
 
@@ -7,13 +7,13 @@ Plugin funguje v **Claude Cowork** (desktop aplikace Claude s režimem práce se
 (Ověřeno z oficiálních docs: dokud je vypnuté, Skills/upload v menu nejsou vidět.)
 
 ## Krok 1 — Nahrát skilly (ověřený postup, garantovaný na Pro plánu)
-K dispozici je složka `sladek-pravo-skills/` se **14 samostatnými ZIPy** (jeden skill = jeden ZIP):
+K dispozici je složka `ak-sladek-skills/` se **14 samostatnými ZIPy** (jeden skill = jeden ZIP):
 1. V Claude appce: levý sidebar → **Customize** → záložka **Skills**.
 2. Tlačítko **+** → **„Create skill"** → **„Upload a skill"** → vybrat ZIP.
 3. Opakovat pro všechny skilly (start: nastaveni-kancelare, formatuj-smlouvu, generuj-smlouvu, hloubkovy-research — zbytek lze donahrát později).
 4. Nahrané skilly se zapínají přepínačem a objeví se po napsání „/" v chatu.
 
-> Alternativa (pokud vaše verze appky nabízí v Customize → Plugins volbu „upload custom plugin file"): nahrát rovnou celý `sladek-pravo.zip` — jeden krok místo čtrnácti. Obě cesty vedou ke stejnému výsledku.
+> Alternativa (pokud vaše verze appky nabízí v Customize → Plugins volbu „upload custom plugin file"): nahrát rovnou celý `ak-sladek.zip` — jeden krok místo čtrnácti. Obě cesty vedou ke stejnému výsledku.
 
 ## Krok 2 — Připojit konektory (Settings → Connectors)
 

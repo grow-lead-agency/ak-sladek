@@ -74,4 +74,4 @@ Deleší report ulož jako dokument (Word/MD), krátký nech v chatu.
 
 Tento skill NEnahrazuje právní rešerši v odpovědnosti advokáta — je to nástroj. Právní závěry z researche podléhají kontrole advokáta (zák. č. 85/1996 Sb.). U právních témat vždy nabídni navazující použití DirectCase skillů (revize-smlouvy, kontrola-souladu…).
 
-<!-- Origin: fork GrowLead research-loop agent (agents-and-skills/skills/research/research-loop) | Adaptace: 2026-07-14 pro sladek-pravo — Cowork skill místo CLI agenta, Exa+Firecrawl+DirectCase routing, právní anti-halucinace vrstva | Inspiration: interní -->
+<!-- Origin: fork GrowLead research-loop agent (agents-and-skills/skills/research/research-loop) | Adaptace: 2026-07-14 pro ak-sladek — Cowork skill místo CLI agenta, Exa+Firecrawl+DirectCase routing, právní anti-halucinace vrstva | Inspiration: interní -->

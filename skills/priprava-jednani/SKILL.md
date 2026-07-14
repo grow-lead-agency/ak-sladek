@@ -280,4 +280,4 @@ Po jednání:
 - **Nízkoprioritní položky**: Kontrola na dalším naplánovaném jednání nebo měsíční revizi
 - **Položky po termínu**: Eskalujte na gestora a jeho vedoucího; označte na dalším relevantním jednání
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

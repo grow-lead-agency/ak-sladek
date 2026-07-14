@@ -1,7 +1,7 @@
 # Research Sources — formatuj-smlouvu
 
 ## 2026-07-14 — vznik skillu (research fáze legal vertikály)
-Kompletní research: `skills/legal/_podklady/research/02-document-automation-word-format.md`.
+Kompletní research: `skills/legal/research/02-document-automation-word-format.md`.
 
 Klíčové zdroje (reálně otevřené):
 - https://lawvudraft.com/articles/microsoft-word-numbering-lawyers-guide/ — 3vrstvá architektura Word číslování, patologie, fixy

@@ -203,4 +203,4 @@ Vždy jasně uveďte, které zdroje byly prověřeny a které nikoli, aby uživa
 - Upozorněte na všechny smlouvy, kterým skončila platnost, ale mohou stále obsahovat přetrvávající závazky (mlčenlivost, odškodnění atd.)
 - Pokud se smlouva blíží ke konci platnosti (do 90 dnů), výrazně na to upozorněte
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

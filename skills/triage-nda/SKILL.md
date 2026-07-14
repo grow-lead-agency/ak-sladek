@@ -302,4 +302,4 @@ Pro klasifikace ŽLUTÁ a ČERVENÁ:
 - U smluv o mlčenlivosti (NDA), které jsou součástí širší smlouvy (např. doložka o mlčenlivosti v rámcové smlouvě), upozorněte, že kontext širší smlouvy může ovlivnit analýzu
 - Vždy uveďte, že jde o kontrolní nástroj a právník by měl revidovat jakékoli položky, u nichž si uživatel není jistý
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

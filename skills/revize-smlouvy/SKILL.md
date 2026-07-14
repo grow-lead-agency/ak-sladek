@@ -604,4 +604,4 @@ Pokud si uživatel zvolil vlastní formát (např. PDF, prezentace, e-mail), zep
 - U velmi dlouhých smluv (50+ stran) nabídněte, že se nejdříve zaměříte na nejvýznamnější části a teprve poté provedete kompletní revizi
 - Vždy uživateli připomeňte, že tato analýza má být před využitím pro právní rozhodnutí ověřena kvalifikovaným advokátem
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

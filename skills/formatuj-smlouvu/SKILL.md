@@ -51,4 +51,4 @@ Vrať uživateli:
 - Vnořené podúrovně číslování (a, b, c) zatím ne — bod s podvýčtem nech jako jeden odstavec a upozorni.
 - PDF vstup: nejdřív extrahuj text lokálně, strukturu rekonstruuj a označ nejistá místa.
 
-<!-- Origin: GrowLead sladek-pravo plugin (interní house style kanceláře JUDr. Sládka) | Vytvořeno: 2026-07-14 | Inspiration: interní house-rules.md + kancelar-base.docx vzory -->
+<!-- Origin: GrowLead ak-sladek plugin (interní house style kanceláře JUDr. Sládka) | Vytvořeno: 2026-07-14 | Inspiration: interní house-rules.md + kancelar-base.docx vzory -->

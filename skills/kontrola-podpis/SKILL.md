@@ -169,4 +169,4 @@ Pokud OR vyžaduje **dva jednatele společně**, upozorni uživatele, že jeden 
 2. **Ověř oprávnění** — Ujisti se, že každý signatář je oprávněn zavazovat svou organizaci (statutární orgán nebo osoba s plnou mocí). KYC v OR je rychlejší a levnější než pozdější spor o platnost smlouvy kvůli neoprávněnému podpisu.
 3. **Uchovej kopii** — Podepsané kopie ihned po podpisu ulož v ~~cloudovém úložišti nebo ~~CLM.
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

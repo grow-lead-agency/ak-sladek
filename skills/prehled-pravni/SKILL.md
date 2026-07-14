@@ -252,4 +252,4 @@ Rychlé informace pro vyvíjející se situace, které vyžadují okamžitou pr�
 - Přehledy mají být akceschopné: každá položka by měla mít jasný další krok nebo důvod pro zařazení
 - Přehledy udržujte stručné. Odkazujte na zdrojové materiály, místo aby byly reprodukovány v plném rozsahu
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

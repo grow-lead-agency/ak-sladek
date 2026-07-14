@@ -506,4 +506,4 @@ Při pomoci uživatelům s tvorbou nových šablon:
 - U regulovaných odpovědí (DSR, předvolání) vždy uveďte aplikovatelnou lhůtu a regulatorní požadavky
 - Šablony by měly být živé dokumenty; při úpravě šablonové odpovědi uživatelem navrhněte aktualizace, aby bylo možné šablonu časem zlepšovat
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do sladek-pravo pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

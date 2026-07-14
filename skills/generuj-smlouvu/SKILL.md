@@ -83,4 +83,4 @@ PŘED draftováním zkontroluj [`references/eskalace.md`](../../references/eskal
 - Prodávající = 1 osoba (FO/PO). Manželé (SJM) a více spoluvlastníků zatím jen na straně kupující omezeně — ověř výstup.
 - Podpisový blok se zástupcem podporuje jen kupující stranu (PO prodávající = zkontroluj podpisy ručně).
 
-<!-- Origin: GrowLead sladek-pravo plugin (interní vzory kanceláře JUDr. Sládka) | Vytvořeno: 2026-07-14 | Inspiration: interní docxtpl vzory kanceláře (kupní smlouva, smlouva o úschově, plná moc, předžalobní výzva) -->
+<!-- Origin: GrowLead ak-sladek plugin (interní vzory kanceláře JUDr. Sládka) | Vytvořeno: 2026-07-14 | Inspiration: interní docxtpl vzory kanceláře (kupní smlouva, smlouva o úschově, plná moc, předžalobní výzva) -->

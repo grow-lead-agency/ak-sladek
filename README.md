@@ -1,4 +1,4 @@
-# sladek-pravo — AI plugin pro AK Sládek
+# ak-sladek — AI plugin pro AK Sládek
 
 Plugin pro Claude (Cowork / Claude Code) na míru advokátní kanceláři **JUDr. Petr Sládek** (realitní právo, advokátní úschovy). Kompletní balík: generování a formátování dokumentů z vlastních vzorů kanceláře + 9 právních workflow skillů (DirectCase, MIT) + top research agent.
 
