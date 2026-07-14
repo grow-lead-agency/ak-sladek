@@ -1,0 +1,61 @@
+.claude-plugin/plugin.json
+  s_8fc3a741b63d31::t_1afe80f7a5373a 2-3
+INSTALL.md
+  s_8fc3a741b63d31::t_f4d3724d0a597e 1,10,16
+README.md
+  s_8fc3a741b63d31::t_f4eb64010cd28f 1
+skills/formatuj-smlouvu/SKILL.md
+  s_8fc3a741b63d31::t_c5fffb58b4f219 54
+skills/formatuj-smlouvu/references/sources.md
+  s_9f5fce6d75f0f0::t_7eb8c4af92c7e6 4
+skills/generuj-smlouvu/SKILL.md
+  s_8fc3a741b63d31::t_569e6c3a7b7e77 86
+skills/generuj-smlouvu/references/sources.md
+  s_9f5fce6d75f0f0::t_4f65fe41930b59 4
+skills/hloubkovy-research/SKILL.md
+  s_8fc3a741b63d31::t_249048f1554154 77
+skills/hloubkovy-research/references/sources.md
+  s_9f5fce6d75f0f0::t_98811c7ffdea43 5
+skills/kontrola-dodavatele/SKILL.md
+  s_8fc3a741b63d31::t_9996b01c9cc395 206
+skills/kontrola-podpis/SKILL.md
+  s_8fc3a741b63d31::t_aae2f55d9e7927 172
+skills/kontrola-souladu/SKILL.md
+  s_8fc3a741b63d31::t_492036beb4dc97 391
+skills/posouzeni-rizika/SKILL.md
+  s_8fc3a741b63d31::t_6630f90a7fc968 314
+skills/pravni-odpoved/SKILL.md
+  s_8fc3a741b63d31::t_e7e3b368fbb10e 509
+skills/prehled-pravni/SKILL.md
+  s_8fc3a741b63d31::t_b7db0e608a0b0e 255
+skills/priprava-jednani/SKILL.md
+  s_8fc3a741b63d31::t_fc74995c137422 283
+skills/revize-smlouvy/SKILL.md
+  s_8fc3a741b63d31::t_8ffca84e025120 607
+skills/triage-nda/SKILL.md
+  s_8fc3a741b63d31::t_68eef6b5a9514b 305
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "09398259093422d39a7ce54e4bd6013181d1112d",
+  "prompts": {},
+  "sessions": {
+    "s_8fc3a741b63d31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fee34fa-0d7b-4fec-af93-bd38ebfad33d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    },
+    "s_9f5fce6d75f0f0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6099-daa8-7bc0-9f7b-48097c11e018",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    }
+  }
+}
