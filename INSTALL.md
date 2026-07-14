@@ -6,13 +6,7 @@ Plugin funguje v **Claude Cowork** (desktop aplikace Claude s režimem práce se
 **Settings → Capabilities → zapnout „Code execution and file creation".**
 (Ověřeno z oficiálních docs: dokud je vypnuté, Skills/upload v menu nejsou vidět.)
 
-## Krok 1 — Instalace pluginu přes marketplace (doporučeno — 1 krok)
-1. V Claude appce: levý sidebar → **Customize** → záložka **Plugins**.
-2. **+** → **„Add marketplace"** → **„Add from a repository"** → zadat: `grow-lead-agency/sladek-pravo`
-3. Po synchronizaci kliknout **Install** u pluginu **sladek-pravo**. Hotovo — všech 14 skillů + konektory najednou.
-4. Po instalaci spustit `/nastaveni-kancelare` — doplní účet úschovy a heslo PDF notifikací (v public repu jsou z bezpečnostních důvodů placeholdery).
-
-## Krok 1B — Alternativa: nahrát skilly jednotlivě (kdyby marketplace zlobil)
+## Krok 1 — Nahrát skilly (ověřený postup, garantovaný na Pro plánu)
 K dispozici je složka `sladek-pravo-skills/` se **14 samostatnými ZIPy** (jeden skill = jeden ZIP):
 1. V Claude appce: levý sidebar → **Customize** → záložka **Skills**.
 2. Tlačítko **+** → **„Create skill"** → **„Upload a skill"** → vybrat ZIP.
