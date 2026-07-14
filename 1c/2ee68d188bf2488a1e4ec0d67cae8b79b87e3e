@@ -1,0 +1,107 @@
+.claude-plugin/marketplace.json
+  s_079560e47a0547::t_808518fae8efa8 1-14
+.mcp.json
+  s_9f5fce6d75f0f0::t_5d5b49dd743bf7 1-30
+CONNECTORS.md
+  s_8fc3a741b63d31::t_1957f5aca9b063 1-80
+LICENSE-directcase-pravo-skills
+  s_8fc3a741b63d31::t_a400c793ddb8b4 1-21
+README.md
+  s_4bd0795816a124::t_140fef1903809d 1-70
+legal.local.example.md
+  s_8fc3a741b63d31::t_4dcbc68b7f47f3 1-107
+references/eskalace.md
+  s_4bd0795816a124::t_6eea17b39456fc 1-23
+skills/formatuj-smlouvu/SKILL.md
+  s_8fc3a741b63d31::t_0303a14caf8cba 1-54
+skills/formatuj-smlouvu/references/sources.md
+  s_9f5fce6d75f0f0::t_53e9350184fdce 1-15
+skills/formatuj-smlouvu/scripts/format_docx.py
+  s_4bd0795816a124::t_ba719c4b41f0c1 1-233
+skills/generuj-smlouvu/SKILL.md
+  s_8fc3a741b63d31::t_9cb781cc2afcd8 1-86
+skills/generuj-smlouvu/references/sources.md
+  s_9f5fce6d75f0f0::t_dfd1984adba7b9 1-19
+skills/generuj-smlouvu/scripts/render.py
+  s_079560e47a0547::t_26b13fd8100cf5 1-102
+skills/generuj-smlouvu/scripts/render_doc.py
+  s_079560e47a0547::t_5e332a6747eaf7 1-114
+skills/generuj-smlouvu/vzory/prevod-nemovitosti/schema.json
+  s_8fc3a741b63d31::t_99ba2a9cdeb85c 1-68
+skills/hloubkovy-research/SKILL.md
+  s_8fc3a741b63d31::t_e29452e64a624c 1-77
+skills/hloubkovy-research/references/sources.md
+  s_8fc3a741b63d31::t_2e5728df729d69 1-6
+skills/kontrola-dodavatele/SKILL.md
+  s_8fc3a741b63d31::t_348d12ed92a527 1-206
+skills/kontrola-podpis/SKILL.md
+  s_8fc3a741b63d31::t_5172837e9a0abd 1-172
+skills/kontrola-souladu/SKILL.md
+  s_8fc3a741b63d31::t_2f806f918a016f 1-391
+skills/nastaveni-kancelare/SKILL.md
+  s_4bd0795816a124::t_e17d62c3ae2cf2 1-49
+skills/posouzeni-rizika/SKILL.md
+  s_8fc3a741b63d31::t_b96ae75af78b35 1-314
+skills/pravni-odpoved/SKILL.md
+  s_8fc3a741b63d31::t_11e0fdde592920 1-509
+skills/pravni-sablony/SKILL.md
+  s_8fc3a741b63d31::t_f853922ebf7715 1-67
+skills/prehled-pravni/SKILL.md
+  s_8fc3a741b63d31::t_ea5a1ace996e53 1-255
+skills/priprava-jednani/SKILL.md
+  s_8fc3a741b63d31::t_7c2ea20a35fe75 1-283
+skills/revize-smlouvy/SKILL.md
+  s_8fc3a741b63d31::t_826d9e7ab990a8 1-607
+skills/triage-nda/SKILL.md
+  s_8fc3a741b63d31::t_7042fcceec0118 1-305
+.claude-plugin/plugin.json
+  s_8fc3a741b63d31::t_d3d459f4664d5f 1-8
+INSTALL.md
+  s_8fc3a741b63d31::t_9361b86355bd10 1-66
+TAHAK.md
+  s_8fc3a741b63d31::t_46e03c6b015d40 1-50
+config/kancelar.json
+  s_8fc3a741b63d31::t_64252e92daa3c0 1-30
+references/house-rules.md
+  s_8fc3a741b63d31::t_a219c5f7b1906a 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "1c2ee68d188bf2488a1e4ec0d67cae8b79b87e3e",
+  "prompts": {},
+  "sessions": {
+    "s_079560e47a0547": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f60a4-1c61-7de3-8a1d-540dea6eca70",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    },
+    "s_4bd0795816a124": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6099-6ec4-7f62-93f6-83d7bc4a99b0",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    },
+    "s_8fc3a741b63d31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fee34fa-0d7b-4fec-af93-bd38ebfad33d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    },
+    "s_9f5fce6d75f0f0": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019f6099-daa8-7bc0-9f7b-48097c11e018",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    }
+  }
+}
