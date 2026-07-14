@@ -1,0 +1,19 @@
+.claude-plugin/marketplace.json
+  s_8fc3a741b63d31::t_e0d899fc7189c8 2,9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.13",
+  "base_commit_sha": "857e770e29b718e21122427db12f3a292438c87c",
+  "prompts": {},
+  "sessions": {
+    "s_8fc3a741b63d31": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2fee34fa-0d7b-4fec-af93-bd38ebfad33d",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Petr Rohan <petr.a.rohan@gmail.com>"
+    }
+  }
+}
