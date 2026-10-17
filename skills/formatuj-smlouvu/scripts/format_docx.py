@@ -15,6 +15,7 @@ Rukopis kanceláře (odvozeno z reálných vzorů):
 Model JSON:
 {
   "titul": "DOHODA O NAROVNÁNÍ",
+  "nazev_listiny": "Dohoda o narovnání",   (volitelné, do patičky; jinak se odvodí z titulu)
   "pravni_hlavicka": "(dále jen „**Dohoda**“) uzavřená podle ... mezi smluvními stranami:",
   "strany": [
     {"radky": ["**Jméno, r.č. ...**", "trvale bytem ..."], "dale_jen": "(dále jen „**X**“)"},
@@ -48,6 +49,29 @@ SIZE = Pt(10.5)
 BASE_TPL = Path(__file__).resolve().parent.parent / "base" / "kancelar-base.docx"
 
 W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+
+# Patička kanceláře = číslo stránky + název listiny. Šablona ho nese z kupní smlouvy,
+# proto ho každý dokument přepíše na svůj název (mění se jen text, formát zůstává).
+FOOTER_TITLE_BASE = "Kupní smlouva"
+
+
+def set_footer_title(doc, title: str) -> int:
+    """Nahradí název listiny v patičkách šablony. Vrací počet nahrazení (0 = patička bez názvu)."""
+    from docx.opc.constants import RELATIONSHIP_TYPE as RT
+    n = 0
+    for rel in doc.part.rels.values():
+        if rel.reltype == RT.FOOTER:
+            for t in rel.target_part.element.iter(qn("w:t")):
+                if (t.text or "").strip() == FOOTER_TITLE_BASE:
+                    t.text = f"{title} "
+                    n += 1
+    return n
+
+
+def footer_title_from(titul: str) -> str:
+    """„DOHODA O NAROVNÁNÍ" -> „Dohoda o narovnání" (název listiny do patičky)."""
+    s = " ".join(titul.replace("*", "").split())
+    return s[:1].upper() + s[1:].lower()
 
 
 # ---------- numbering (skutečné, per-článek restart) ----------
@@ -150,6 +174,7 @@ def para(doc, text="", align=None, bold=False, numbered_id=None):
 
 def build(model: dict, out_path: Path) -> None:
     doc = Document(str(BASE_TPL))
+    set_footer_title(doc, model.get("nazev_listiny") or footer_title_from(model["titul"]))
     alloc = ensure_numbering(doc)
     C, J = WD_ALIGN_PARAGRAPH.CENTER, WD_ALIGN_PARAGRAPH.JUSTIFY
 

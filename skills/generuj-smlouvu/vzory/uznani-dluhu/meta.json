@@ -1,0 +1,26 @@
+{
+  "nazev": "Uznání dluhu a dohoda o splátkách",
+  "stav": "navrh-growlead",
+  "verze": "0.9.0",
+  "pravni_zaklad": [
+    "§ 2053 OZ",
+    "§ 2054 OZ",
+    "§ 639 OZ",
+    "§ 641 OZ",
+    "§ 642 OZ",
+    "§ 1931 OZ",
+    "§ 1970 OZ",
+    "§ 1973 OZ",
+    "§ 561 odst. 1 OZ",
+    "§ 71a odst. 2 a § 71b zákona č. 358/1992 Sb.",
+    "§ 40 odst. 1 písm. d) zákona č. 120/2001 Sb.",
+    "čl. IV bod 4 zákona č. 396/2012 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89, https://www.zakonyprolidi.cz/cs/1992-358, https://www.zakonyprolidi.cz/cs/2001-120, https://www.zakonyprolidi.cz/cs/2012-396",
+  "otevrene_otazky": [
+    "Je důvod a rozsah jistiny i příslušenství dostatečně určitý a odpovídá podkladům, včetně původní splatnosti?",
+    "Má během řádného splácení pokračovat úročení z titulu dosavadního prodlení podle § 1973 OZ, které tento vzor nesjednává?",
+    "Vyhovuje zvolený mechanismus zesplatnění, doručování a pořadí úhrad okolnostem případu, zejména při spotřebitelském vztahu?",
+    "Je požadován notářský zápis se svolením k vykonatelnosti a je nutné upravit zajištění či posoudit již promlčený dluh?"
+  ]
+}

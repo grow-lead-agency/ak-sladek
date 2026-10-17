@@ -1,0 +1,13 @@
+{
+  "nazev": "Výzva nájemci k zaplacení a nápravě",
+  "pravni_zaklad": [
+    "§ 2291 odst. 1 až 3 OZ"
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89#p2291",
+  "otevrene_otazky": [
+    "Je lhůta přiměřená dluhu i požadované nápravě a je správně určeno její počítání od dojití?",
+    "Je rozpis po započtení všech plateb správný a je obsah i dojití výzvy prokazatelné?"
+  ],
+  "stav": "navrh-growlead",
+  "verze": "0.9.0"
+}

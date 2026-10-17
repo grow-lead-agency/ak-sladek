@@ -1,0 +1,56 @@
+# Katalog úloh kanceláře: rejstřík
+
+> Karty úloh pro `/pravni-sablony`. Úlohu lze vyvolat názvem nebo ID (např. „úloha N-03", „použij kartu Z-05").
+> Soubory 01 až 05 = hlavní praxe kanceláře (hloubkové karty), 06 až 12 = ostatní oblasti (stručné karty, vyšší nárok na ověření).
+> Každá karta: kdy, ověřená ustanovení, náležitosti, lhůty, chyby, nástroj (vzor / skill), eskalace. Paragrafy ověřeny k 16. 10. 2026, po cross-family review.
+
+Celkem 212 karet v 12 souborech.
+
+## [Katalog úloh 01: Nemovitosti a katastr (N-)](01-nemovitosti-katastr.md) (15 karet)
+
+N-01 Kupní smlouva k nemovitosti (převod s úschovou) · N-02 Prověrka listu vlastnictví (části A až F) · N-03 Smlouva o smlouvě budoucí kupní (nemovitost) · N-04 Rezervační smlouva · N-05 Návrh na vklad a jeho náležitosti · N-06 Výmaz zástavního práva · N-07 Služebnosti: služebnost bytu, užívací a požívací právo · N-08 Darování nemovitosti s výhradou věcného břemene · N-09 Spoluvlastnictví: zrušení a vypořádání · N-10 Společné jmění manželů při převodu · N-11 Vady při koupi nové jednotky od developera · N-12 Realitní zprostředkování · N-13 Poznámka spornosti a žaloba o odstranění nesouladu zápisu · N-14 Předkupní práva při prodeji · N-15 Prodej bytové jednotky v domě se SVJ
+
+## [Katalog úloh 02: Advokátní úschovy (U-)](02-uschovy.md) (14 karet)
+
+U-01 Smlouva o advokátní úschově kupní ceny · U-02 Povinnosti před přijetím peněz do úschovy · U-03 Výplatní podmínky vázané na list vlastnictví · U-04 Úschova s výplatou zástavnímu věřiteli prodávajícího · U-05 Úschova při financování hypotékou kupujícího · U-06 Vrácení úschovy při nesplnění podmínek · U-07 Rozporné pokyny stran a spor o vydání úschovy · U-08 Úschova zálohy, rezervačního poplatku nebo závdavku · U-09 Úschova listin · U-10 Hlášení do EKÚ, Garanční fond a ukončení úschovy · U-11 Zákaz hotovosti a platby mimo úschovu · U-12 Notářská a soudní úschova, úschova přes realitní kancelář · U-13 Protistrana v exekuci nebo insolvenci během úschovy · U-14 Úschova s cizincem nebo platbou ze zahraničí
+
+## [Katalog úloh 03: Nájem a společenství vlastníků (NJ-)](03-najem-svj.md) (13 karet)
+
+NJ-01 Nájemní smlouva k bytu · NJ-02 Nájem prostoru sloužícího podnikání · NJ-03 Výzva nájemci · NJ-04 Výpověď nájmu bytu pronajímatelem s výpovědní dobou · NJ-05 Výpověď nájmu bytu bez výpovědní doby · NJ-06 Návrh nájemce na přezkoumání výpovědi · NJ-07 Jistota u nájmu bytu · NJ-08 Nájemné a služby: zvýšení a vyúčtování · NJ-09 Vyklizení bytu a dluhy po skončení nájmu · NJ-10 Konec nájmu na dobu určitou a výpověď nájemce · NJ-11 SVJ: příspěvky, zálohy a vymáhání dluhů · NJ-12 SVJ: shromáždění a rozhodování · NJ-13 SVJ: napadení rozhodnutí shromáždění přehlasovaným vlastníkem
+
+## [Katalog úloh 04: Závazky a vymáhání pohledávek (Z-)](04-zavazky-vymahani.md) (13 karet)
+
+Z-01 Předžalobní výzva · Z-02 Uznání dluhu · Z-03 Dohoda o narovnání · Z-04 Návrh na vydání platebního rozkazu a elektronického platebního rozkazu · Z-05 Žaloba o zaplacení · Z-06 Odpor proti platebnímu rozkazu · Z-07 Smluvní pokuta · Z-08 Úroky z prodlení · Z-09 Postoupení pohledávky · Z-10 Ručení · Z-11 Bezdůvodné obohacení · Z-12 Promlčení: hlídání a obrana · Z-13 Započtení
+
+## [Katalog úloh 05: Zajištění, exekuce a insolvence (E-)](05-zajisteni-exekuce-insolvence.md) (13 karet)
+
+E-01 Předběžné opatření · E-02 Smluvní zástavní právo k nemovitosti · E-03 Výkon smluvního zástavního práva · E-04 Soudcovské zástavní právo k nemovitosti · E-05 Exekutorské zástavní právo k nemovitosti · E-06 Exekuční návrh · E-07 Zastavení exekuce a další obrana povinného · E-08 Odklad exekuce · E-09 Vyškrtnutí věci ze soupisu a vylučovací žaloba · E-10 Přihláška pohledávky do insolvenčního řízení · E-11 Popření pohledávky a incidenční spory · E-12 Protistrana v insolvenci: prověrka a účinky · E-13 Odpůrčí žaloba a neúčinnost jednání dlužníka
+
+## [Katalog 06: Rodinné a dědické právo (R-)](06-rodinne-dedicke.md) (22 karet)
+
+R-01 Rozvod manželství smluvený (nesporný) · R-02 Sporný rozvod a vyjádření k návrhu na rozvod · R-03 Úprava péče o nezletilé dítě · R-04 Výživné pro nezletilé dítě · R-05 Změna nebo zrušení výživného · R-06 Styk s dítětem a jeho úprava · R-07 Předběžné opatření při ohrožení dítěte · R-08 Výživné mezi manžely a pro rozvedeného manžela · R-09 Vypořádání společného jmění manželů · R-10 Smlouva o manželském majetkovém režimu · R-11 Domácí násilí: předběžné opatření (vykázání, zákaz kontaktu) · R-12 Určení a popření otcovství · R-13 Souhlas soudu s právním jednáním za nezletilého · R-14 Podpůrná opatření a omezení svéprávnosti · R-15 Řízení o pozůstalosti: podání u soudního komisaře · R-16 Odmítnutí dědictví · R-17 Výhrada soupisu a odpovědnost dědice za dluhy · R-18 Povinný díl, vydědění, dědická nezpůsobilost · R-19 Závěť (vlastnoruční a alografní) · R-20 Dohoda dědiců o rozdělení pozůstalosti · R-21 Zřeknutí se dědického práva · R-22 Trestní oznámení v rodinné věci (výživa, týrání)
+
+## [Katalog 07: Pracovní právo a sociální zabezpečení (P-)](07-pracovni.md) (23 karet)
+
+P-01 Pracovní smlouva (doba neurčitá a určitá) · P-02 Zkušební doba a zrušení ve zkušební době · P-03 Změna obsahu pracovního poměru, převedení na jinou práci · P-04 Dohoda o provedení práce a dohoda o pracovní činnosti · P-05 Konkurenční doložka zaměstnance · P-06 Dohoda o práci na dálku · P-07 Výpověď daná zaměstnavatelem · P-08 Písemné upozornění na možnost výpovědi, výzva k odstranění neuspokojivých výsledků · P-09 Okamžité zrušení pracovního poměru zaměstnavatelem · P-10 Výpověď zaměstnance, dohoda o rozvázání, okamžité zrušení zaměstnancem · P-11 Odstupné · P-12 Oznámení, že zaměstnanec trvá na dalším zaměstnávání · P-13 Žaloba na neplatnost rozvázání pracovního poměru · P-14 Dlužná mzda, přesčasy a dovolená: výzva a žaloba · P-15 Potvrzení o zaměstnání a pracovní posudek · P-16 Pracovní úraz a nemoc z povolání · P-17 Hromadné propouštění · P-18 Přechod práv a povinností při převodu činnosti · P-19 Diskriminace a nerovné zacházení · P-20 Švarcsystém a nelegální práce (posouzení spolupráce na IČO) · P-21 Vnitřní předpisy a pracovní řád · P-22 Vnitřní oznamovací systém (ochrana oznamovatelů) · P-23 Námitky proti rozhodnutí ČSSZ ve věci důchodu
+
+## [Katalog 08: Obchodní a korporátní právo, insolvence dlužníka (O-)](08-obchodni-korporatni.md) (22 karet)
+
+O-01 Založení s.r.o. (společenská smlouva, zakladatelská listina) · O-02 Smlouva mezi společníky · O-03 Valná hromada s.r.o.: pozvánka, zápis, rozhodování per rollam · O-04 Rozhodnutí jediného společníka · O-05 Jednatel: volba, odvolání, zápis do obchodního rejstříku · O-06 Smlouva o výkonu funkce · O-07 Odpovědnost člena statutárního orgánu · O-08 Změna společenské smlouvy (sídlo, předmět podnikání, orgány) · O-09 Převod obchodního podílu · O-10 Zvýšení a snížení základního kapitálu · O-11 Účetní závěrka a rozdělení zisku · O-12 Žaloba na neplatnost usnesení valné hromady · O-13 Vystoupení, vyloučení a dohoda o ukončení účasti společníka · O-14 Zrušení společnosti s likvidací · O-15 Obchodní smlouvy mezi podnikateli a obchodní podmínky · O-16 Smlouva o obchodním zastoupení · O-17 Licenční a IT smlouvy (vývoj software, SaaS) · O-18 Nekalá soutěž a obchodní tajemství · O-19 Insolvenční návrh dlužníka · O-20 Insolvenční návrh věřitele · O-21 Oddlužení (návrh na povolení) · O-22 Due diligence obchodní společnosti
+
+## [Katalog 09: Trestní právo (T-)](09-trestni.md) (19 karet)
+
+T-01 Trestní oznámení (obecné náležitosti) · T-02 Majetkové trestné činy: podvod, zpronevěra, krádež · T-03 Nebezpečné vyhrožování, pronásledování, pomluva · T-04 Poškozený: uplatnění nároku na náhradu škody v trestním řízení · T-05 Nahlížení do spisu · T-06 Žádost o přezkoumání postupu policejního orgánu · T-07 Stížnost proti usnesení (zahájení stíhání, odložení, zajištění) · T-08 Důkazní návrhy a znalecký posudek strany · T-09 Vazba: žádost o propuštění, nahrazení vazby · T-10 Odklony: podmíněné zastavení, narovnání, dohoda o vině a trestu · T-11 Odvolání proti rozsudku · T-12 Dovolání v trestní věci · T-13 Obnova řízení · T-14 Zajištění majetku a vrácení věci · T-15 Promlčení trestní odpovědnosti · T-16 Dopravní trestné činy · T-17 Zahlazení odsouzení · T-18 Peněžitá pomoc obětem trestných činů · T-19 Náhrada škody za nezákonnou vazbu nebo odsouzení
+
+## [Katalog 10: Správní, daňové právo a ochrana osobních údajů (S-)](10-spravni-danove.md) (23 karet)
+
+S-01 Podání a žádost ve správním řízení · S-02 Odvolání ve správním řízení · S-03 Rozklad · S-04 Ochrana proti nečinnosti správního orgánu · S-05 Přezkumné řízení a obnova řízení · S-06 Odpor proti příkazu · S-07 Stížnost na postup správního orgánu · S-08 Žaloba proti rozhodnutí správního orgánu · S-09 Žaloba proti nezákonnému zásahu · S-10 Kasační stížnost · S-11 Přestupky: obhajoba, promlčení, upuštění od trestu · S-12 Žádost o informace podle InfZ a opravné prostředky · S-13 Stavební a jiné zvláštní správní věci · S-14 Odvolání proti platebnímu výměru · S-15 Daňová kontrola: vyjádření k výsledku kontrolního zjištění · S-16 Postup k odstranění pochybností · S-17 Dodatečné daňové přiznání · S-18 Posečkání a splátky daně · S-19 Prominutí penále a úroku · S-20 Vrácení vratitelného přeplatku · S-21 Daňová exekuce a zajištění: námitka, vyloučení majetku · S-22 Náhrada škody za nezákonné rozhodnutí a nesprávný úřední postup · S-23 Práva subjektu údajů a stížnost k ÚOOÚ
+
+## [Katalog 11: Spotřebitelé, finanční služby, pojištění a každodenní spory (SP-)](11-spotrebitele-pojisteni.md) (18 karet)
+
+SP-01 Reklamace vadného zboží · SP-02 Odstoupení od smlouvy uzavřené na dálku nebo mimo obchodní prostory · SP-03 Zneužívající ujednání ve spotřebitelské smlouvě · SP-04 Nekalé obchodní praktiky · SP-05 Mimosoudní řešení spotřebitelského sporu · SP-06 Spotřebitelský úvěr: neplatnost pro neposouzení úvěruschopnosti, lichva · SP-07 Předčasné splacení spotřebitelského úvěru · SP-08 Návrh finančnímu arbitrovi · SP-09 Neautorizovaná platební transakce (zneužitá karta, podvodná platba) · SP-10 Pojistné plnění: šetření, zamítnutí, žaloba · SP-11 Výpověď pojištění · SP-12 Vady zájezdu · SP-13 Letecká přeprava: zrušení letu a náhrada · SP-14 Telekomunikační služby: reklamace vyúčtování, námitka u ČTÚ · SP-15 Ochrana osobnosti (internet, fotografie, nepravdivé údaje) · SP-16 Zdravotní služby: stížnost, dokumentace, újma na zdraví · SP-17 Vady díla a služeb (autoservis, rekonstrukce) · SP-18 Sousedské spory (imise)
+
+## [Katalog 12: Průřezové úlohy: smluvní doložky, plné moci, checklisty, výpočty (X-)](12-prurezove.md) (17 karet)
+
+X-01 Doložka o mlčenlivosti · X-02 Smluvní pokuta · X-03 Vyšší moc a změna okolností · X-04 Rozhodčí doložka · X-05 Volba práva a dohoda o příslušnosti soudu · X-06 Ochrana osobních údajů: doložka a zpracovatelská smlouva · X-07 Doložka o mediaci a mimosoudním jednání · X-08 Konkurenční doložka mezi podnikateli · X-09 Doručování a započtení · X-10 Ujednání o délce promlčecí lhůty · X-11 Procesní plná moc a plná moc pro jednotlivé úkony · X-12 Jednání za společnost: plná moc a prokura · X-13 Osvobození od soudních poplatků a ustanovení zástupce · X-14 Ústavní stížnost · X-15 Výpočty: úrok, lhůta, promlčení, poplatek, odměna · X-16 Přijetí nové věci: střet zájmů a identifikace klienta · X-17 Kontrola před odesláním (podání, citace, formát)
+

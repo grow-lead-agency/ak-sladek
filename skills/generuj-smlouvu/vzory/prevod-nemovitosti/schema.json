@@ -47,7 +47,8 @@
       "required": ["celkem", "zaloha", "doplatek", "pokuta_neuhrazeni", "pokuta_predani"],
       "properties": {
         "celkem": {"type": "string", "description": "formát '3.500.000,00' (bez Kč)"},
-        "zaloha": {"type": "string", "description": "první část kupní ceny (hotovost před podpisem) — formát '100.000,00'"},
+        "zaloha": {"type": "string", "description": "první část kupní ceny (hotovost před podpisem), formát '100.000,00'; max. 270.000,00 Kč (zákon č. 254/2004 Sb., § 4), jinak render STOP"},
+        "hotovost_tentyz_den": {"type": "string", "description": "volitelné: další hotovost, kterou tentýž plátce zaplatil témuž příjemci v den zálohy (§ 4 odst. 4 zák. 254/2004 Sb., sčítá se do limitu), formát '0,00'"},
         "doplatek": {"type": "string", "description": "druhá část do úschovy — formát '3.400.000,00'; MUSÍ = uschova.castka"},
         "pokuta_neuhrazeni": {"type": "string", "description": "smluvní pokuta při neuhrazení ceny"},
         "pokuta_predani": {"type": "string", "description": "pokuta za den prodlení s předáním, např. '1.000,00'"}

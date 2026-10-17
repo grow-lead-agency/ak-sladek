@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "vypoved-najmu-bez-vypovedni-doby - data návrhu",
+  "type": "object",
+  "$defs": {
+    "strana": {
+      "type": "object",
+      "properties": {
+        "radek1": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno a identifikace osoby; právnická osoba včetně IČ."
+        },
+        "radek2": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Adresa bydliště nebo sídla."
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "podpis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno nebo název v podpisovém bloku."
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Jméno a funkce zástupce, pokud jedná za stranu."
+        },
+        "adresa_dorucovaci": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Adresa pro doručení výzvy nebo výpovědi."
+        }
+      },
+      "required": [
+        "radek1",
+        "radek2",
+        "podpis"
+      ]
+    }
+  },
+  "required": [
+    "pronajimatel",
+    "najemce",
+    "rok",
+    "smlouva_datum",
+    "byt",
+    "datum_vypovedi",
+    "duvod_typ",
+    "duvod_popis",
+    "predchozi_vyzva",
+    "predani_kontakt"
+  ],
+  "properties": {
+    "pronajimatel": {
+      "$ref": "#/$defs/strana"
+    },
+    "najemce": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/strana"
+        },
+        {
+          "required": [
+            "adresa_dorucovaci"
+          ]
+        }
+      ]
+    },
+    "rok": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{4}$",
+      "description": "Rok podpisu."
+    },
+    "smlouva_datum": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+      "description": "Datum uzavření nájemní smlouvy.",
+      "format": "cz-date"
+    },
+    "byt": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Jednoznačné označení bytu a domu včetně adresy."
+    },
+    "datum_vypovedi": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+      "description": "Datum vyhotovení výpovědi a stav dluhu.",
+      "format": "cz-date"
+    },
+    "duvod_typ": {
+      "type": "string",
+      "enum": [
+        "neplaceni",
+        "jiny"
+      ],
+      "description": "Neplacení za alespoň tři měsíce, nebo jiný zvlášť závažný důvod."
+    },
+    "duvod_popis": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Konkrétní skutky, data, rozsah a intenzita porušení; samotný odkaz na paragraf nestačí."
+    },
+    "dluhy": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mesic": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\d{4}-(0[1-9]|1[0-2])$",
+            "description": "Měsíc, za který dluh vznikl, formát RRRR-MM."
+          },
+          "najemne": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+            "description": "Dosud nezaplacená část nájemného za uvedený měsíc."
+          },
+          "sluzby": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+            "description": "Dosud nezaplacené zálohy nebo náklady služeb za měsíc, nikoliv smluvní sankce."
+          },
+          "splatnost": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+            "description": "Datum splatnosti obou položek; rozdílné splatnosti je nutné posoudit individuálně.",
+            "format": "cz-date"
+          }
+        },
+        "required": [
+          "mesic",
+          "najemne",
+          "sluzby",
+          "splatnost"
+        ]
+      },
+      "minItems": 1
+    },
+    "dluh_celkem": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+      "description": "Součet aktuálního dluhu, povinný při neplacení."
+    },
+    "predchozi_vyzva": {
+      "type": "object",
+      "properties": {
+        "datum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "Datum předchozí výzvy k nápravě.",
+          "format": "cz-date"
+        },
+        "doruceni": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "Datum prokazatelného dojití výzvy nájemci.",
+          "format": "cz-date"
+        },
+        "doklad": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Způsob doručení a označení důkazu o dojití."
+        },
+        "lhuta_do": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "Poslední den lhůty k nápravě, kontrolovaný podle lhuta_dny, § 605 a § 607 OZ včetně českých svátků.",
+          "format": "cz-date"
+        },
+        "obsah": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Konkrétní závadné chování a náprava požadovaná předchozí výzvou."
+        },
+        "bez_napravy": {
+          "type": "boolean",
+          "const": true,
+          "description": "Potvrzení, že porušení přes výzvu a uplynutí přiměřené lhůty trvá."
+        },
+        "lhuta_dny": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 90,
+          "description": "Počet kalendářních dnů od dojití dle skutečné předchozí výzvy. Jiný způsob určení lhůty vyžaduje individuální revizi."
+        }
+      },
+      "required": [
+        "datum",
+        "doruceni",
+        "doklad",
+        "lhuta_do",
+        "obsah",
+        "bez_napravy",
+        "lhuta_dny"
+      ]
+    },
+    "predani_kontakt": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Kontakt pro sjednání předání bytu."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "duvod_typ": {
+            "const": "neplaceni"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "dluhy",
+          "dluh_celkem"
+        ]
+      }
+    }
+  ]
+}

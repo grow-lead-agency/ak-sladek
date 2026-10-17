@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "najemni-smlouva-byt - data návrhu",
+  "type": "object",
+  "$defs": {
+    "strana": {
+      "type": "object",
+      "properties": {
+        "radek1": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno a identifikace osoby; právnická osoba včetně IČ."
+        },
+        "radek2": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Adresa bydliště nebo sídla."
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný další řádek identifikace."
+        },
+        "podpis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno nebo název v podpisovém bloku."
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Jméno a funkce zástupce, pokud jedná za stranu."
+        },
+        "adresa_dorucovaci": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Adresa pro doručení výzvy nebo výpovědi."
+        }
+      },
+      "required": [
+        "radek1",
+        "radek2",
+        "podpis"
+      ]
+    }
+  },
+  "required": [
+    "pronajimatel",
+    "najemce",
+    "rok",
+    "byt",
+    "domacnost",
+    "doba",
+    "najemne",
+    "splatnost_den",
+    "ucet",
+    "sluzby",
+    "zalohy_celkem",
+    "zuctovaci_obdobi",
+    "prime_dodavky",
+    "jistota",
+    "zvirata",
+    "predani",
+    "protokol"
+  ],
+  "properties": {
+    "pronajimatel": {
+      "$ref": "#/$defs/strana"
+    },
+    "najemce": {
+      "$ref": "#/$defs/strana"
+    },
+    "rok": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{4}$",
+      "description": "Rok podpisu."
+    },
+    "byt": {
+      "type": "object",
+      "properties": {
+        "popis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Identifikace bytu, číslo, podlaží, dispozice a plocha."
+        },
+        "dum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Dům a adresa včetně čísla popisného."
+        },
+        "lv": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "List vlastnictví, případně více LV."
+        },
+        "katastralni_uzemi": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Katastrální území a obec."
+        },
+        "prislusenstvi": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Příslušenství a společné prostory k užívání; pokud nejsou, výslovně uvést."
+        },
+        "vybaveni": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Soupis vybavení ve vlastnictví pronajímatele."
+        }
+      },
+      "required": [
+        "popis",
+        "dum",
+        "lv",
+        "katastralni_uzemi",
+        "prislusenstvi",
+        "vybaveni"
+      ]
+    },
+    "domacnost": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S",
+        "description": "Další člen domácnosti při uzavření smlouvy."
+      },
+      "minItems": 0
+    },
+    "doba": {
+      "type": "object",
+      "properties": {
+        "typ": {
+          "type": "string",
+          "enum": [
+            "urcita",
+            "neurcita"
+          ],
+          "description": "Doba určitá nebo neurčitá."
+        },
+        "zacatek": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "První den nájmu.",
+          "format": "cz-date"
+        },
+        "konec": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "Poslední den nájmu, povinný pro dobu určitou.",
+          "format": "cz-date"
+        }
+      },
+      "required": [
+        "typ",
+        "zacatek"
+      ]
+    },
+    "najemne": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+      "description": "Měsíční nájemné bez služeb, kladná částka."
+    },
+    "splatnost_den": {
+      "type": "integer",
+      "minimum": 5,
+      "maximum": 28,
+      "description": "Den v příslušném měsíci; tento vzor připouští pátý až dvacátý osmý den."
+    },
+    "ucet": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Bankovní účet pro nájemné, služby a jistotu."
+    },
+    "sluzby": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nazev": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Poskytovaná služba."
+          },
+          "zaloha": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+            "description": "Měsíční záloha na tuto službu."
+          },
+          "rozuctovani": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Pravidlo rozúčtování v souladu se zákonem a pravidly domu."
+          }
+        },
+        "required": [
+          "nazev",
+          "zaloha",
+          "rozuctovani"
+        ]
+      },
+      "minItems": 1
+    },
+    "zalohy_celkem": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+      "description": "Součet měsíčních záloh na služby."
+    },
+    "zuctovaci_obdobi": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Zúčtovací období, nejvýše dvanáct měsíců."
+    },
+    "prime_dodavky": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Dodávky sjednané přímo nájemcem, nebo výslovně žádné."
+    },
+    "jistota": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+      "description": "Jistota nejvýše ve výši trojnásobku nájemného; nulová částka znamená bez jistoty."
+    },
+    "splatnost_jistoty": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+      "description": "Datum složení jistoty; povinné jen při nenulové jistotě.",
+      "format": "cz-date"
+    },
+    "zvirata": {
+      "type": "boolean",
+      "description": "Vloží vysvětlující článek o chovu zvířat; false neznamená zákaz chovu."
+    },
+    "predani": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+      "description": "Sjednaný den předání bytu.",
+      "format": "cz-date"
+    },
+    "protokol": {
+      "type": "object",
+      "properties": {
+        "datum": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\d{2}\\.\\d{2}\\.\\d{4}$",
+          "description": "Datum předání zachycené v protokolu.",
+          "format": "cz-date"
+        },
+        "stav": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Popis stavu bytu při předání."
+        },
+        "klice": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Počet a označení předaných klíčů."
+        },
+        "meridla": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Druh, výrobní číslo a stav měřidla včetně jednotky; není-li, výslovně uvést."
+          },
+          "minItems": 1
+        },
+        "nedostatky": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Zjištěné vady, způsob a termín nápravy, nebo výslovně bez vad."
+        }
+      },
+      "required": [
+        "datum",
+        "stav",
+        "klice",
+        "meridla",
+        "nedostatky"
+      ]
+    },
+    "rok_predani": {
+      "type": "string",
+      "readOnly": true,
+      "description": "Odvozuje gate z protokol.datum, vstupní hodnota se přepíše."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "doba": {
+            "properties": {
+              "typ": {
+                "const": "urcita"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "doba": {
+            "required": [
+              "konec"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "jistota": {
+            "not": {
+              "const": "0,00"
+            }
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "splatnost_jistoty"
+        ]
+      }
+    }
+  ]
+}

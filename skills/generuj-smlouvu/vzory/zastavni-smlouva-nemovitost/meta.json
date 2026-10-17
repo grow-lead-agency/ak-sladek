@@ -1,0 +1,18 @@
+{
+  "nazev": "Zástavní smlouva k nemovitosti",
+  "pravni_zaklad": [
+    "§ 1309, § 1311, § 1312 a § 1316 OZ",
+    "§ 1359, § 1362 a § 1364 OZ",
+    "§ 1761 OZ",
+    "§ 7, § 8, § 10 a § 11 zákona č. 256/2013 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89; https://www.zakonyprolidi.cz/cs/2013-256",
+  "otevrene_otazky": [
+    "Jsou zajištěný dluh, příslušenství a případný soubor budoucích dluhů dostatečně určitě vymezeny a odpovídá limit jistiny záměru stran?",
+    "Je Zástavce oprávněn věc zatížit, jsou nutné další souhlasy a jaké je pořadí práv podle aktuálního LV?",
+    "Je doba zákazu zcizení a zatížení přiměřená a jeho konkrétní zájem hodný právní ochrany?",
+    "Je pro konkrétní Zástavu vhodné pojištění, vinkulace a výlučně zákonný způsob zpeněžení?"
+  ],
+  "stav": "navrh-growlead",
+  "verze": "0.9.0"
+}

@@ -39,7 +39,7 @@ Před generováním právní odpovědi ověř, zda je dostupný **DirectCase kon
 
 Tento krok přeskoč pouze tehdy, byl-li už proveden v této konverzaci.
 
-> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "czech law"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — je vždy dostupný a nezávisí na stavu registru konektorů. Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
+> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "czech law"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — nezávisí na stavu registru konektorů, ale na Basic se počítá do kvóty, proto ho volej nejvýš 1× za konverzaci (viz [`references/directcase-limity.md`](../../references/directcase-limity.md)). Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
 
 ## Vyvolání
 
@@ -76,7 +76,7 @@ Pokud je v Kroku 0 potvrzeno použití DirectCase, využij jej pro **ověření 
 
 **Pravidlo: každý DirectCase parallel search nástroj lze v rámci jedné konverzace zavolat jen JEDNOU.** Nástroj bere pole `queries[]` — většina šablonových odpovědí si vystačí s jediným dotazem na konkrétní ustanovení v jednom volání; víc okruhů spojuj do stejného pole.
 
-> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_law_parallel` (zákonná ustanovení), `get_law_detail` (plný text konkrétního paragrafu / článku pro přesnou citaci včetně znění), `search_regulatory_parallel` (aktuální stanoviska ÚOOÚ a dalších regulátorů), `search_caselaw_parallel` (judikatura k precedentu). Parallel search nástroje = **1× za konverzaci**, víc dotazů slouč do pole `queries[]`. **Rate limit:** Basic (free) = 20 volání/nástroj celkem, Pro = 25/den. Pro doplňkové dotazy k přesnému znění preferuj `get_law_detail` (lehký nástroj) místo dalšího parallel search volání.
+> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_law_parallel` (zákonná ustanovení), `get_law_detail` (plný text konkrétního paragrafu / článku pro přesnou citaci včetně znění), `search_regulatory_parallel` (aktuální stanoviska ÚOOÚ a dalších regulátorů), `search_caselaw_parallel` (judikatura k precedentu). Parallel search nástroje = **1× za konverzaci**, víc dotazů slouč do pole `queries[]`. **Rate limit:** viz [`references/directcase-limity.md`](../../references/directcase-limity.md). Pro doplňkové dotazy k přesnému znění preferuj `get_law_detail` (lehký nástroj) místo dalšího parallel search volání.
 
 ## Workflow
 
@@ -506,4 +506,4 @@ Při pomoci uživatelům s tvorbou nových šablon:
 - U regulovaných odpovědí (DSR, předvolání) vždy uveďte aplikovatelnou lhůtu a regulatorní požadavky
 - Šablony by měly být živé dokumenty; při úpravě šablonové odpovědi uživatelem navrhněte aktualizace, aby bylo možné šablonu časem zlepšovat
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (SPDX-License-Identifier: MIT, third-party/directcase-pravo-skills/LICENSE, viz NOTICE) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

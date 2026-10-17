@@ -1,0 +1,378 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$defs": {
+    "strana": {
+      "type": "object",
+      "required": [
+        "radek1",
+        "radek2",
+        "podpis"
+      ],
+      "properties": {
+        "radek1": {
+          "type": "string",
+          "description": "FO: 'Jméno Příjmení, r.č. XXXXXX/XXXX' | PO: 'Název s.r.o., IČ: XXX XX XXX'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "radek2": {
+          "type": "string",
+          "description": "FO: 'trvale pobytem <adresa>' | PO: 'se sídlem <adresa>'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný rejstříkový zápis právnické osoby nebo další identifikační údaj."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelná identifikace zástupce včetně funkce a způsobu jednání."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "rezerva (další řádek hlavičky)"
+        },
+        "podpis": {
+          "type": "string",
+          "description": "Jméno do podpisového bloku (FO: jméno; PO: název firmy)",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "PO: '<jméno>, jednatel' pod názvem firmy v podpisu; FO: null"
+        }
+      }
+    },
+    "dluznik": {
+      "type": "object",
+      "required": [
+        "radek1",
+        "radek2"
+      ],
+      "properties": {
+        "radek1": {
+          "type": "string",
+          "description": "FO: 'Jméno Příjmení, r.č. XXXXXX/XXXX' | PO: 'Název s.r.o., IČ: XXX XX XXX'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "radek2": {
+          "type": "string",
+          "description": "FO: 'trvale pobytem <adresa>' | PO: 'se sídlem <adresa>'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelný rejstříkový zápis právnické osoby nebo další identifikační údaj."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Volitelná identifikace zástupce včetně funkce a způsobu jednání."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "rezerva (další řádek hlavičky)"
+        },
+        "podpis": {
+          "type": "string",
+          "description": "Jméno do podpisového bloku (FO: jméno; PO: název firmy)",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "PO: '<jméno>, jednatel' pod názvem firmy v podpisu; FO: null"
+        }
+      }
+    }
+  },
+  "title": "Zástavní smlouva k nemovitosti, data případu",
+  "properties": {
+    "veritel": {
+      "$ref": "#/$defs/strana",
+      "description": "Zástavní věřitel."
+    },
+    "zastavce": {
+      "$ref": "#/$defs/strana",
+      "description": "Vlastník Zástavy."
+    },
+    "zastavce_je_dluznik": {
+      "type": "boolean",
+      "description": "Je Zástavce zároveň osobním dlužníkem?"
+    },
+    "dluznik": {
+      "$ref": "#/$defs/dluznik",
+      "description": "Osobní dlužník, pokud jím není Zástavce; není stranou smlouvy."
+    },
+    "dluh": {
+      "type": "object",
+      "required": [
+        "rezim",
+        "duvod",
+        "splatnost",
+        "prislusenstvi"
+      ],
+      "properties": {
+        "rezim": {
+          "enum": [
+            "existujici",
+            "budouci"
+          ],
+          "description": "Jednotlivý existující dluh nebo vymezený soubor budoucích dluhů."
+        },
+        "duvod": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Konkrétní právní důvod, identifikace smlouvy, datum a druh dluhů; ani budoucí dluh nestačí vymezit jen částkou."
+        },
+        "vyse": {
+          "type": "string",
+          "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+          "description": "Částka bez Kč, např. 1.000,00; odměna a dluh kladné, záloha může být 0,00."
+        },
+        "nejvyssi_castka": {
+          "type": "string",
+          "pattern": "^(?:0|[1-9]\\d{0,2}(?:\\.\\d{3})*),\\d{2}$",
+          "description": "Částka bez Kč, např. 1.000,00; odměna a dluh kladné, záloha může být 0,00."
+        },
+        "obdobi_od": {
+          "type": "string",
+          "format": "date",
+          "description": "První den období vzniku budoucích dluhů, RRRR-MM-DD."
+        },
+        "obdobi_do": {
+          "type": "string",
+          "format": "date",
+          "description": "Poslední den období vzniku budoucích dluhů, RRRR-MM-DD."
+        },
+        "splatnost": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Datum nebo určitý mechanismus splatnosti."
+        },
+        "prislusenstvi": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Přesný rozsah zajištěných úroků, úroků z prodlení a nákladů, případně výslovné vyloučení."
+        }
+      }
+    },
+    "nemovitost": {
+      "type": "object",
+      "required": [
+        "polozky",
+        "ku_text",
+        "urad_kraj",
+        "pracoviste",
+        "lv",
+        "zatizeni"
+      ],
+      "properties": {
+        "polozky": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "text",
+              "odrazka"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "Řádek popisu dle LV , vzory: jednotka: 'jednotky č. X/Y (byt) vymezené podle zákona č. 72/1994 Sb., ...' + pokračování 'spolu s podílem o velikosti A/B na společných částech domu, ...'; pozemek: 'pozemku parc. č. X (druh) v katastrálním území Y'",
+                "minLength": 1,
+                "pattern": "\\S"
+              },
+              "odrazka": {
+                "type": "boolean",
+                "description": "true = nová odrážka; false = pokračovací řádek bez odrážky"
+              }
+            }
+          }
+        },
+        "ku_text": {
+          "type": "string",
+          "description": "např. 'v katastrálním území a obci Sázava' nebo 'v katastrálním území Studánka'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "urad_kraj": {
+          "type": "string",
+          "description": "např. 'pro Středočeský kraj' (část názvu katastrálního úřadu, neskloňuje se)",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "pracoviste": {
+          "type": "string",
+          "description": "např. 'Benešov'",
+          "minLength": 1,
+          "pattern": "\\S"
+        },
+        "lv": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Číslo listu vlastnictví z aktuálního výpisu."
+        },
+        "zatizeni": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Všechna zatížení a omezení včetně plomb; nejsou-li žádná, uveďte výslovně."
+        }
+      }
+    },
+    "pojisteni": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Pojištění a jeho rozsah; u nepojistitelné zástavy výslovná dohoda, že se pojištění nevyžaduje, s důvodem."
+    },
+    "zakaz": {
+      "type": "object",
+      "required": [
+        "zapnut"
+      ],
+      "properties": {
+        "zapnut": {
+          "type": "boolean",
+          "default": false,
+          "description": "Věcný zákaz zcizení a zatížení podle § 1761 OZ."
+        },
+        "do": {
+          "type": "string",
+          "format": "date",
+          "description": "Nejzazší konec přiměřené doby zákazu, RRRR-MM-DD."
+        },
+        "zajem": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Konkrétní právně chráněný zájem a přiměřenost doby zákazu."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "zapnut": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "do",
+              "zajem"
+            ]
+          }
+        }
+      ]
+    },
+    "vklad_zajisti": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Kdo podá návrh, kdy a kdo zaplatí správní poplatek; lhůty slovy a číslem."
+    },
+    "rok": {
+      "type": "string",
+      "pattern": "^\\d{4}$",
+      "description": "Rok podpisu."
+    }
+  },
+  "required": [
+    "veritel",
+    "zastavce",
+    "zastavce_je_dluznik",
+    "dluh",
+    "nemovitost",
+    "pojisteni",
+    "vklad_zajisti",
+    "rok"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "zastavce_je_dluznik": {
+            "const": false
+          }
+        },
+        "required": [
+          "zastavce_je_dluznik"
+        ]
+      },
+      "then": {
+        "required": [
+          "dluznik"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "dluh": {
+            "properties": {
+              "rezim": {
+                "const": "budouci"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "dluh": {
+            "required": [
+              "nejvyssi_castka",
+              "obdobi_od",
+              "obdobi_do"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "dluh": {
+            "required": [
+              "vyse"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

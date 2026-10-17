@@ -1,0 +1,19 @@
+{
+  "nazev": "Výpověď nájmu bytu bez výpovědní doby",
+  "pravni_zaklad": [
+    "§ 2286 OZ",
+    "§ 2290 OZ",
+    "§ 2291 odst. 1 až 3 OZ",
+    "§ 2292 OZ",
+    "§ 605 odst. 1 a § 607 OZ",
+    "§ 1 a § 2 zákona č. 245/2000 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89#p2286; https://www.zakonyprolidi.cz/cs/2012-89#p2290; https://www.zakonyprolidi.cz/cs/2012-89#p2291; https://sbirka.nsoud.cz/sbirka/23384/ (NS 26 Cdo 2029/2023, odst. 10); https://www.zakonyprolidi.cz/cs/2000-245",
+  "otevrene_otazky": [
+    "Představují konkrétní dluhy nebo jiné skutky zvlášť závažné porušení i k dojití výpovědi, zejména při částečných platbách?",
+    "[ověřit] Existuje pro konkrétní nenapravitelný stav použitelná judikatorní výjimka z předchozí výzvy? Tento vzor bez předchozí výzvy generování nepovoluje.",
+    "Jsou všichni společní nájemci řádně označeni, obesláni a je poučení úplné?"
+  ],
+  "stav": "navrh-growlead",
+  "verze": "0.9.0"
+}

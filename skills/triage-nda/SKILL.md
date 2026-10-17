@@ -41,7 +41,7 @@ Před zahájením triage NDA ověř, zda je dostupný **DirectCase konektor** pr
 
 Tento krok přeskoč pouze tehdy, byl-li už proveden v této konverzaci.
 
-> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík", "judikatura"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — je vždy dostupný a nezávisí na stavu registru konektorů. Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
+> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík", "judikatura"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — nezávisí na stavu registru konektorů, ale na Basic se počítá do kvóty, proto ho volej nejvýš 1× za konverzaci (viz [`references/directcase-limity.md`](../../references/directcase-limity.md)). Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
 
 ## Vyvolání
 
@@ -59,7 +59,7 @@ Pokud je v Kroku 0 potvrzeno použití DirectCase, využij jej pro:
 
 **Pravidlo: každý DirectCase parallel search nástroj (`search_law_parallel`, `search_caselaw_parallel`) lze v rámci jedné konverzace zavolat jen JEDNOU.** Nástroj bere pole `queries[]` — u běžné NDA si vystačíš s jedním dotazem na judikaturu k typicky sporným doložkám v jednom volání; pokud potřebuješ víc tematických okruhů, přidej je jako další položky do stejného pole `queries[]`, nevolej nástroj vícekrát.
 
-> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` / `search_identifier` (obchodní rejstřík), `search_company_documents` (sbírka listin, insolvenční rejstřík), `search_law_parallel` (zákonný rámec NDA), `search_caselaw_parallel` (judikatura k vymahatelnosti NDA, smluvním pokutám, konkurenčním doložkám). Parallel search nástroje = **1× za konverzaci**. **Rate limit:** Basic (free) = 20 volání/nástroj celkem, Pro = 25/den, Premium = 75/den. Pro follow-up dotazy preferuj `search_keyword` / `search_identifier` (vyšší limit: Pro 200/den) místo dalšího parallel search volání.
+> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` (obchodní rejstřík podle IČO nebo názvu, včetně stavu insolvence), `search_company_documents` (sbírka listin), `search_law_parallel` (zákonný rámec NDA), `search_caselaw_parallel` (judikatura k vymahatelnosti NDA, smluvním pokutám, konkurenčním doložkám). Parallel search nástroje = **1× za konverzaci**. **Rate limit:** viz [`references/directcase-limity.md`](../../references/directcase-limity.md). Pro follow-up dotazy preferuj `search_keyword`, konkrétní sp. zn. ověř přes `search_identifier` místo dalšího parallel search volání.
 
 ## Pracovní postup
 
@@ -302,4 +302,4 @@ Pro klasifikace ŽLUTÁ a ČERVENÁ:
 - U smluv o mlčenlivosti (NDA), které jsou součástí širší smlouvy (např. doložka o mlčenlivosti v rámcové smlouvě), upozorněte, že kontext širší smlouvy může ovlivnit analýzu
 - Vždy uveďte, že jde o kontrolní nástroj a právník by měl revidovat jakékoli položky, u nichž si uživatel není jistý
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (SPDX-License-Identifier: MIT, third-party/directcase-pravo-skills/LICENSE, viz NOTICE) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

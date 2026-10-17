@@ -1,0 +1,19 @@
+{
+  "nazev": "Smlouva o smlouvě budoucí kupní k nemovitosti",
+  "stav": "navrh-growlead",
+  "verze": "0.9.0",
+  "pravni_zaklad": [
+    "§ 1785 až 1788 OZ",
+    "§ 1807 a 1808 OZ",
+    "§ 1809 OZ (kontrola při doplnění odstoupení)",
+    "§ 560 OZ (budoucí převod)",
+    "§ 2048 až 2051 OZ"
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89",
+  "otevrene_otazky": [
+    "Odpovídá popis nemovitosti aktuálnímu LV, podílům, režimu jednotky a případnému společnému jmění?",
+    "Jsou termíny výzvy a podpisu i způsob doručování vhodné pro financování a přípravu kupní smlouvy?",
+    "Má jít o zálohu, závdavek, nebo žádnou platbu; jak ověřit odevzdání závdavku při podpisu a řešit případné odstoupení?",
+    "Jsou podmínky úschovy, vrácení peněz, předání a smluvní sankce vyvážené a vzájemně slučitelné?"
+  ]
+}

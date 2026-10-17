@@ -1,0 +1,23 @@
+{
+  "nazev": "Dohoda o narovnání",
+  "stav": "navrh-growlead",
+  "verze": "0.9.0",
+  "pravni_zaklad": [
+    "§ 1903 OZ",
+    "§ 1904 OZ",
+    "§ 1905 OZ",
+    "§ 1906 OZ",
+    "§ 1907 OZ",
+    "§ 560 OZ",
+    "§ 561 OZ",
+    "§ 1105 OZ",
+    "§ 7 odst. 2 a § 11 zákona č. 256/2013 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89, https://www.zakonyprolidi.cz/cs/2013-256",
+  "otevrene_otazky": [
+    "Je rozsah nahrazených práv, vzájemných ústupků a konečného vypořádání dostatečně přesný, včetně výluk a příslušenství?",
+    "Mají původní práva zaniknout již uzavřením dohody, nebo až po splnění nových povinností, a má být plnění vzájemně podmíněné?",
+    "Je třeba řešit třetí osoby, zajištění podle § 1907 OZ, spotřebitelský vztah nebo probíhající řízení a jeho náklady?",
+    "Týká-li se dohoda nemovitosti, je připravena úplná vkladová listina, identifikace nemovitostí, ověřené podpisy a návaznost účinků vkladu?"
+  ]
+}

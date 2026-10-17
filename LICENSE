@@ -1,0 +1,108 @@
+LICENCE A VÝHRADA PRÁV / LICENSE AND RESERVATION OF RIGHTS
+
+Copyright (c) 2026 GrowLead (Petr Rohan) a Advokátní kancelář JUDr. Petr Sládek.
+Všechna práva vyhrazena. All rights reserved.
+
+ČESKY
+
+1. Rozsah. Tato licence se vztahuje na veškerý obsah tohoto repozitáře s výjimkou součástí
+   třetích stran uvedených v souboru NOTICE, na které se vztahují jejich vlastní licenční
+   podmínky (MIT licence DirectCase v adresáři third-party/directcase-pravo-skills). Vlastní
+   obsah zahrnuje zejména skilly, instrukce, vzory dokumentů (docx), šablony, skripty,
+   konfigurace a dokumentaci neoznačené jako součást třetí strany (dále jen „Dílo").
+
+2. Všechna práva vyhrazena. Dílo je chráněno zákonem č. 121/2000 Sb., autorským zákonem, a
+   mezinárodními smlouvami. Zveřejnění Díla na GitHubu neznamená udělení licence k jeho užití,
+   rozmnožování, šíření, úpravě ani k užití pro trénování nebo zlepšování modelů umělé
+   inteligence. Bez předchozího písemného souhlasu nositele práv je zakázáno Dílo nebo jeho
+   části rozmnožovat, šířit, zpřístupňovat veřejnosti, upravovat, sublicencovat nebo zahrnovat
+   do jiných produktů či služeb.
+
+3. Povolené užití. Bez dalšího se povoluje (a) zobrazení Díla prostřednictvím GitHubu a vytvoření
+   forku výlučně v rozsahu, v jakém to nezbytně vyplývá z podmínek služby GitHub pro veřejné
+   repozitáře; (b) instalace a užívání Díla jako pluginu kanceláří, pro kterou bylo vytvořeno,
+   včetně přizpůsobení vzorů a pravidel jejím potřebám, vytváření dokumentů pomocí Díla a jejich
+   předávání klientům, protistranám, soudům a úřadům; (c) osobní nekomerční prohlížení za účelem
+   posouzení. Jakékoli jiné užití vyžaduje písemnou licenci.
+
+   Zákonná oprávnění. Tato licence a výhrada neomezují užití, které zákon dovoluje bez souhlasu
+   nositele práv (zejména § 29 až 39d zákona č. 121/2000 Sb., včetně vytěžování pro vědecký
+   výzkum podle § 39d), a vztahují se jen na obsah, k němuž nositelé práv taková práva mají.
+
+4. Výhrada vytěžování textů a dat (TDM opt-out). Nositel práv si výslovně a strojově čitelně
+   vyhrazuje užití Díla pro automatizovanou analýzu textů nebo dat, včetně sběru, rozmnožování
+   a extrakce za účelem trénování, doladění, hodnocení nebo zlepšování modelů umělé inteligence
+   (včetně generativních a jazykových modelů) a tvorby datových sad a embeddingů, a to podle
+   § 39c odst. 2 zákona č. 121/2000 Sb. a čl. 4 odst. 3 směrnice (EU) 2019/790, a pro účely
+   čl. 53 odst. 1 písm. c) nařízení (EU) 2024/1689. Výhrada platí pro veškerý obsah
+   repozitáře, jeho historii (commity) a všechny jeho kopie, i když byly získány z jiného zdroje
+   než z původního repozitáře. Žádost o povolení: https://growlead.cz
+
+5. Zákaz dalšího šíření. Dílo nesmí být kopírováno do jiných repozitářů, balíčků, marketplace,
+   katalogů, souborů ke stažení ani datových sad, ani jinak veřejně zpřístupňováno třetím
+   osobám, s výjimkou forku podle bodu 3 písm. a).
+
+6. Součásti třetích stran. Součásti uvedené v NOTICE licencují jejich autoři (MIT licence,
+   Copyright (c) 2026 DirectCase) a platí pro ně jen jejich podmínky. Tato licence jejich práva
+   neruší a nerozšiřuje oprávnění k vlastnímu obsahu. Upravené součásti zůstávají pod původní
+   licencí.
+
+7. Bez záruky. Dílo se poskytuje „tak, jak je". Není právní službou ani právní radou; výstupy
+   jsou návrhy ke kontrole advokátem.
+
+8. Rozhodné právo. Právo České republiky; příslušné jsou soudy České republiky, nestanoví-li
+   kogentní předpis jinak.
+
+ENGLISH
+
+1. Scope. This license applies to all content of this repository except the third-party
+   components listed in the NOTICE file, which are governed by their own license terms (the
+   DirectCase MIT license in third-party/directcase-pravo-skills). "Work" means all original
+   skills, instructions, document templates (docx), templates, scripts, configuration and
+   documentation not marked as third-party.
+
+2. All rights reserved. The Work is protected by the Czech Copyright Act No. 121/2000 Coll. and
+   international treaties. Publishing the Work on GitHub does not grant any license to use,
+   copy, distribute or modify it, or to use it for training or improving artificial
+   intelligence models. Without the prior written permission of the rightsholder you may not
+   reproduce, distribute, make available to the public, modify, sublicense, or incorporate the
+   Work or parts of it into other products or services.
+
+3. Permitted use. (a) Viewing the Work through GitHub and creating a fork solely to the extent
+   necessarily required by GitHub's Terms of Service for public repositories; (b) installing
+   and using the Work as a plugin by the law firm for which it was created, including adapting
+   the templates and rules to its needs, creating documents with the Work and providing them to
+   clients, counterparties, courts and authorities; (c) personal, non-commercial viewing for
+   evaluation. Any other use requires a written license.
+
+   Statutory exceptions. This license and reservation do not limit uses permitted by law without
+   the rightsholder's consent (in particular Sections 29 to 39d of the Czech Copyright Act,
+   including text and data mining for scientific research under Section 39d) and apply only to
+   content in which the rightsholders hold such rights.
+
+4. Text and data mining reservation (opt-out). The rightsholder expressly reserves, in a
+   machine-readable manner, all use of the Work for text and data mining, including collecting,
+   copying and extracting the Work for the purpose of training, fine-tuning, evaluating or
+   improving AI models (including generative and language models) or building datasets or
+   embeddings, pursuant to Section 39c(2) of the Czech Copyright Act and Article 4(3) of
+   Directive (EU) 2019/790, and for the purposes of Article 53(1)(c) of Regulation (EU)
+   2024/1689. This reservation applies to all repository content, its history (commits) and all
+   copies, including copies obtained from sources other than the original repository. To
+   request permission: https://growlead.cz
+
+5. No redistribution. The Work must not be copied into other repositories, packages,
+   marketplaces, catalogs, downloads or datasets, nor otherwise made publicly available, except
+   by a fork under 3(a).
+
+6. Third-party components. Components listed in NOTICE are licensed by their authors (MIT
+   license, Copyright (c) 2026 DirectCase) and only their terms apply to them. This license
+   neither removes those rights nor extends permissions to the original content; modified
+   components remain under their original license.
+
+7. No warranty. The Work is provided "as is". It is not legal advice or a legal service; its
+   outputs are drafts for review by an attorney.
+
+8. Governing law. Czech law; Czech courts, unless mandatory law provides otherwise.
+
+tdm-reservation: 1
+Content-Usage: train-ai=n

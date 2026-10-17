@@ -37,7 +37,7 @@ V tematickém a krizovém režimu může být užitečné prohledat i externí a
 
 V denním režimu se DirectCase obvykle nepoužívá — jde o souhrn z interních systémů. Krok 0 přeskoč pouze tehdy, byl-li už proveden v této konverzaci.
 
-> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "judikatura", "czech law"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — je vždy dostupný a nezávisí na stavu registru konektorů. Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
+> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "judikatura", "czech law"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — nezávisí na stavu registru konektorů, ale na Basic se počítá do kvóty, proto ho volej nejvýš 1× za konverzaci (viz [`references/directcase-limity.md`](../../references/directcase-limity.md)). Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
 
 ## Spuštění
 
@@ -150,7 +150,7 @@ Pokud je v Kroku 0 potvrzeno použití DirectCase, využij jej pro **autoritativ
 
 Výsledky cituj pomocí identifikátorů (sp. zn., ECLI, č. Sb. + datum) v sekcích přehledu.
 
-> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_caselaw_parallel` (judikatura NS, ÚS, NSS, vrchních a krajských soudů), `search_law_parallel` (zákony a předpisy), `search_regulatory_parallel` (regulatorní dokumenty ČNB, ÚOOÚ, ÚOHS), `search_keyword` (klíčové vyhledávání napříč celou databází ~1,4 M zdrojů), `search_similar` (dokumenty podobné klíčovému nálezu), `get_document` / `get_law_detail` (plný text). Parallel nástroje = **1× za konverzaci**, víc dotazů slouč do pole `queries[]`. **Rate limit:** Basic (free) = 20 volání/nástroj celkem, Pro = 25/den (AI search), 200/den (lehké nástroje). Pro follow-up dotazy preferuj `search_keyword` / `search_similar` místo dalšího parallel search volání.
+> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_caselaw_parallel` (judikatura NS, ÚS, NSS, vrchních a krajských soudů), `search_law_parallel` (zákony a předpisy), `search_regulatory_parallel` (regulatorní dokumenty ČNB, ÚOOÚ, ÚOHS), `search_keyword` (klíčové vyhledávání napříč celou databází ~1,4 M zdrojů), `search_similar` (dokumenty podobné klíčovému nálezu), `get_document` / `get_law_detail` (plný text). Parallel nástroje = **1× za konverzaci**, víc dotazů slouč do pole `queries[]`. **Rate limit:** viz [`references/directcase-limity.md`](../../references/directcase-limity.md). Pro follow-up dotazy preferuj `search_keyword` / `search_similar` místo dalšího parallel search volání.
 
 #### Formát výstupu
 
@@ -252,4 +252,4 @@ Rychlé informace pro vyvíjející se situace, které vyžadují okamžitou pr�
 - Přehledy mají být akceschopné: každá položka by měla mít jasný další krok nebo důvod pro zařazení
 - Přehledy udržujte stručné. Odkazujte na zdrojové materiály, místo aby byly reprodukovány v plném rozsahu
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (SPDX-License-Identifier: MIT, third-party/directcase-pravo-skills/LICENSE, viz NOTICE) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

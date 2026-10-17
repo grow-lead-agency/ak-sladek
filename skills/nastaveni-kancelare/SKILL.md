@@ -38,6 +38,11 @@ Co VŽDY eskalovat (návrhy: spor > X Kč, cizinecký prvek, insolvence protistr
 - Které dokumenty píše nejčastěji? (fronta pro nové vzory generátoru — plná moc, předžalobní výzva, uznání dluhu, narovnání…)
 - Kde drží vzory (OneDrive?) — pro budoucí napojení
 
+### Blok 6 — Bezpečnost a AI
+- Jaký typ účtu Claude kancelář používá? Osobní plán (Pro, Max): je v nastavení soukromí vypnuté použití konverzací ke zlepšování modelu? Pokud ne, ukaž, kde to vypnout. Firemní plán (Team, Enterprise): data se k trénování podle podmínek standardně nepoužívají, stačí to zapsat.
+- Informuje kancelář klienty ve smlouvě o poskytování právních služeb, že používá AI pod dohledem advokáta? Pokud ne a advokát chce, připrav návrh jedné věty doložky přes `/pravni-sablony`.
+- Jaká data klientů smí do Clauda (např. ano pro generování smluv, ne pro obecné rešerše)? Zapiš jako pravidlo do `legal.local.md`.
+
 ## Výstup
 1. **`legal.local.md`** vyplněný odpověďmi (struktura dle example).
 2. Změny v `config/kancelar.json` — vypiš je advokátovi k potvrzení PŘED zápisem.
@@ -46,4 +51,4 @@ Co VŽDY eskalovat (návrhy: spor > X Kč, cizinecký prvek, insolvence protistr
 
 **Neptej se na vše najednou** — bloky po jednom, advokát může kdykoli říct „zbytek přeskočíme".
 
-<!-- Origin: Anthropic claude-for-legal cold-start-interview pattern (github.com/anthropics/claude-for-legal) | Adaptace: 2026-07-14 pro AK Sládek (realitní právo, úschovy) -->
+<!-- Origin: Anthropic claude-for-legal cold-start-interview pattern (github.com/anthropics/claude-for-legal) | Adaptace: 2026-07-14 pro AK Sládek (realitní právo, úschovy) | Updated: 2026-10-16 (Blok 6 Bezpečnost a AI, inspirace externí knihovnou právních úloh, text vlastní) -->

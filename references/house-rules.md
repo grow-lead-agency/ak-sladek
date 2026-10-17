@@ -19,6 +19,11 @@
 - **Články**: římská číslice (I.) centrovaně bold; název článku na dalším řádku centrovaně bold.
 - **Body**: skutečné Word číslování (decimal `%1.`, odsazení 360/360 twips, restart per článek). NIKDY čísla psaná v textu.
 
+## Patička
+- **Číslo stránky + název listiny** (Tahoma 10 pt), převzato z patičky kupní smlouvy kanceláře.
+- Název listiny odpovídá dokumentu (např. „Plná moc", „Dohoda o narovnání"), nikdy nezůstává
+  „Kupní smlouva" ze šablony. Formátovač i buildery vzorů ho nastavují automaticky (oprava 2026-10-16).
+
 ## Částky a lhůty
 - **Částky: `N.NNN.NNN,00 Kč` — haléře VŽDY na dvě místa** (Sládek 14.7.). Formátovač normalizuje automaticky.
 - Lhůty slovy + číslem: `deseti (10) pracovních dnů`.

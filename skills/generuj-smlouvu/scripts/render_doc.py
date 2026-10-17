@@ -13,6 +13,7 @@ Gates (z researche — kritická procesní pravidla V KÓDU, ne jen v textu):
 Vyžaduje: pip install docxtpl. Konstanty kanceláře: config/kancelar.json.
 """
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -73,6 +74,59 @@ GATES = {
 }
 
 
+def _load_gate(vzor_name: str):
+    """Gate vzoru: vestavěný (GATES), jinak scripts/gates/<vzor_name s _>.py s funkcí gate(data)."""
+    if vzor_name in GATES:
+        return GATES[vzor_name]
+    path = Path(__file__).resolve().parent / "gates" / f"{vzor_name.replace('-', '_')}.py"
+    if not path.exists():
+        return None
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(f"gate_{path.stem}", path)
+    assert spec is not None and spec.loader is not None, f"gate {path} nelze načíst"
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.gate
+
+
+_MESICE = ["leden", "únor", "březen", "duben", "květen", "červen", "červenec", "srpen",
+           "září", "říjen", "listopad", "prosinec"]
+_ISO_DATE = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
+_ISO_MONTH = re.compile(r"^(\d{4})-(\d{2})$")
+_DOT_DATE = re.compile(r"(?<![\d.])(\d{1,2})\.(\d{1,2})\.(\d{4})(?!\d|\.\d)")
+_ISO_IN_TEXT = re.compile(r"(?<![\d-])(\d{4})-(\d{2})-(\d{2})(?![\d-])")
+
+
+def _cz_dates(value):
+    """Data do textu v českém tvaru „1. 6. 2026" (gates dostávají původní ISO, převod až po nich)."""
+    if isinstance(value, dict):
+        return {k: _cz_dates(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [_cz_dates(v) for v in value]
+    if not isinstance(value, str):
+        return value
+    m = _ISO_MONTH.match(value)
+    if m and 1 <= int(m.group(2)) <= 12:
+        return f"{_MESICE[int(m.group(2)) - 1]} {m.group(1)}"
+    m = _ISO_DATE.match(value)
+    if m:
+        return f"{int(m.group(3))}. {int(m.group(2))}. {m.group(1)}"
+    value = _ISO_IN_TEXT.sub(lambda m: f"{int(m.group(3))}. {int(m.group(2))}. {m.group(1)}", value)
+    return _DOT_DATE.sub(lambda m: f"{int(m.group(1))}. {int(m.group(2))}. {m.group(3)}", value)
+
+
+def _stav_warning(vzor_dir: Path) -> str | None:
+    """Vzor, který kancelář ještě neschválila (meta.json stav != schvaleno-kanceari), nese varování."""
+    meta = vzor_dir / "meta.json"
+    if not meta.exists():
+        return None
+    stav = json.loads(meta.read_text(encoding="utf-8")).get("stav")
+    if stav != "schvaleno-kanceari":
+        return ("VZOR DOSUD NESCHVÁLEN KANCELÁŘÍ (návrh GrowLead): text vzoru zkontroluje advokát; "
+                "po schválení se v meta.json nastaví stav 'schvaleno-kanceari'.")
+    return None
+
+
 def main() -> int:
     if len(sys.argv) != 4:
         print(__doc__)
@@ -88,7 +142,7 @@ def main() -> int:
     data.setdefault("advokat", cfg["advokat"])
     data.setdefault("rok", str(date.today().year))
 
-    gate = GATES.get(vzor_name)
+    gate = _load_gate(vzor_name)
     warnings = []
     if gate:
         errors, warnings = gate(data)
@@ -98,9 +152,13 @@ def main() -> int:
                 print(f"  ✗ {e}")
             return 1
 
+    stav = _stav_warning(vzor_dir)
+    if stav:
+        warnings.insert(0, stav)
+
     out_dir.mkdir(parents=True, exist_ok=True)
     tpl = DocxTemplate(str(tpl_path))
-    tpl.render(data)
+    tpl.render(_cz_dates(data))
     out = out_dir / f"{vzor_name}-navrh.docx"
     tpl.save(str(out))
     print(f"  ✓ {out}")

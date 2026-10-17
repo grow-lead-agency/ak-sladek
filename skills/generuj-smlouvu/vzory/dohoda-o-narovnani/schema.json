@@ -1,0 +1,302 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "strana": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "typ",
+        "radek1",
+        "radek2",
+        "podpis"
+      ],
+      "properties": {
+        "typ": {
+          "type": "string",
+          "enum": [
+            "FO",
+            "PO"
+          ],
+          "description": "Fyzická nebo právnická osoba."
+        },
+        "radek1": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "FO: jméno, příjmení a datum narození; PO: název a IČ."
+        },
+        "radek2": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "FO: trvale bytem; PO: se sídlem, úplná adresa."
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Např. zápis PO v obchodním rejstříku, soud, oddíl a vložka."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Zastoupení a způsob jednání za PO, případně zmocněnec FO."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Další identifikační údaj, jinak null."
+        },
+        "podpis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno FO nebo název PO v podpisovém bloku."
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Jméno a funkce podepisujícího zástupce, u PO povinné; ověřit způsob jednání."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "typ": {
+                "const": "PO"
+              }
+            },
+            "required": [
+              "typ"
+            ]
+          },
+          "then": {
+            "required": [
+              "podpis_zastupce"
+            ],
+            "properties": {
+              "podpis_zastupce": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S",
+                "description": "Jméno a funkce zástupce PO."
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "title": "Dohoda o narovnání",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "strana1",
+    "strana2",
+    "sporna_prava",
+    "ustupky_strana1",
+    "ustupky_strana2",
+    "plneni",
+    "rozsah_narovnani",
+    "rok"
+  ],
+  "properties": {
+    "strana1": {
+      "$ref": "#/$defs/strana"
+    },
+    "strana2": {
+      "$ref": "#/$defs/strana"
+    },
+    "sporna_prava": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "pattern": "\\S",
+        "description": "Konkrétní sporné či pochybné právo, právní důvod, postoje stran a rozsah sporu."
+      }
+    },
+    "ustupky_strana1": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Ústupek První strany, odpovídající novému uspořádání."
+    },
+    "ustupky_strana2": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Ústupek Druhé strany, odpovídající novému uspořádání."
+    },
+    "plneni": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "typ",
+          "povinna_strana",
+          "popis",
+          "splatnost"
+        ],
+        "properties": {
+          "typ": {
+            "type": "string",
+            "enum": [
+              "penezite",
+              "nepenezite"
+            ],
+            "description": "Peněžité nebo nepeněžité plnění."
+          },
+          "povinna_strana": {
+            "type": "string",
+            "enum": [
+              "strana1",
+              "strana2"
+            ],
+            "description": "Kdo plní; příjemcem je vždy druhá strana."
+          },
+          "popis": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Určitý předmět nové povinnosti; částky a termíny patří také do příslušných strukturovaných polí."
+          },
+          "castka": {
+            "type": "string",
+            "pattern": "^(?!0,00$)(?:0|[1-9][0-9]{0,2}(?:\\.[0-9]{3})*),[0-9]{2}$",
+            "description": "Částka bez Kč, např. 12.345,67. Přesné haléře, bez desetinného floatu. Musí být kladná."
+          },
+          "splatnost": {
+            "type": "string",
+            "pattern": "^[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}$",
+            "description": "Kalendářně platné datum DD.MM.RRRR, např. 30.11.2026; skutečnou platnost ověřuje gate."
+          },
+          "ucet": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Účet příjemce peněžitého plnění."
+          },
+          "vs": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[0-9]{0,10}$",
+            "description": "Variabilní symbol jako text do deseti číslic; lze vynechat."
+          },
+          "zpusob": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Místo a způsob nepeněžitého plnění, včetně předání či potvrzení převzetí."
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "typ": {
+                  "const": "penezite"
+                }
+              },
+              "required": [
+                "typ"
+              ]
+            },
+            "then": {
+              "required": [
+                "castka",
+                "ucet"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "typ": {
+                  "const": "nepenezite"
+                }
+              },
+              "required": [
+                "typ"
+              ]
+            },
+            "then": {
+              "required": [
+                "zpusob"
+              ]
+            }
+          }
+        ]
+      },
+      "description": "Nové povinnosti včetně povinné strany, předmětu a termínů; podporuje plnění oběma směry."
+    },
+    "rozsah_narovnani": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Přesný rozsah původních nároků nahrazovaných dohodou, včetně příslušenství a výluk. Ostatní nároky zůstávají nedotčeny."
+    },
+    "konecne_vyporadani": {
+      "type": "boolean",
+      "default": false,
+      "description": "Zahrnout omezené prohlášení o konečném vypořádání po úplném splnění nových povinností."
+    },
+    "rozsah_vyporadani": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Povinné při konecne_vyporadani=true; musí ležet v rozsahu narovnání, nesmí zahrnout vyloučená či nezamýšlená práva."
+    },
+    "prevod_nemovitosti": {
+      "type": "boolean",
+      "default": false,
+      "description": "Převod či narovnání věcného práva k nemovitosti evidované v katastru. Generuje návrh s upozorněním na vklad a povinnou revizi advokátem, nikoli hotovou vkladovou listinu."
+    },
+    "rok": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "Rok podpisu. Místo a den podpisu se doplní ručně."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "konecne_vyporadani": {
+            "const": true
+          }
+        },
+        "required": [
+          "konecne_vyporadani"
+        ]
+      },
+      "then": {
+        "required": [
+          "rozsah_vyporadani"
+        ],
+        "properties": {
+          "rozsah_vyporadani": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Konkrétní rozsah konečného vypořádání."
+          }
+        }
+      }
+    }
+  ]
+}

@@ -25,9 +25,9 @@ argument-hint: "<téma / otázka / co prověřit>"
 | **Vyhledání zdrojů** (co existuje, kdo o tom píše) | **Exa** (`web_search_exa`) | první krok každého researche — neuronové vyhledávání, popiš ideální stránku, ne klíčová slova |
 | **Přečtení zdroje** (plný obsah stránky) | **Firecrawl** (`firecrawl_scrape`) | každý zdroj, ze kterého cituješ |
 | **Právo ČR/EU** (zákony, judikatura, OR, regulátoři) | **DirectCase** (`search_caselaw_parallel`, `get_law_detail`, `search_company`) | jakékoli právní tvrzení, KYC firmy, znění § |
-| **Firmy ČR** (IČO, statutáři, insolvence) | **DirectCase** `search_company` / `search_identifier` | prověrka dodavatele, protistrany, klienta |
+| **Firmy ČR** (IČO, statutáři, insolvence) | **DirectCase** `search_company` (IČO nebo název) | prověrka dodavatele, protistrany, klienta |
 
-> **Rate limit DirectCase:** parallel search nástroje (`search_caselaw_parallel`, `search_law_parallel`, `search_regulatory_parallel`) lze zavolat jen **1× za konverzaci** — víc dotazů slouč do pole `queries[]` jednoho volání. Basic (free) = 20 volání/nástroj celkem, Pro = 25/den. Pro follow-up dotazy k už nalezenému zdroji preferuj lehké nástroje (`search_keyword`, `search_identifier`, `get_document`) místo dalšího parallel search volání. Dostupnost a tier ověříš nástrojem `get_entitlements` (vždy dostupný).
+> **Rate limit DirectCase:** parallel search nástroje (`search_caselaw_parallel`, `search_law_parallel`, `search_regulatory_parallel`) lze zavolat jen **1× za konverzaci** — víc dotazů slouč do pole `queries[]` jednoho volání. Limity tierů viz [`references/directcase-limity.md`](../../references/directcase-limity.md). Pro follow-up dotazy k už nalezenému zdroji preferuj lehké nástroje (`search_keyword`, `search_identifier`, `get_document`) místo dalšího parallel search volání. Tier ověříš nástrojem `get_entitlements` (nejvýš 1× za konverzaci, na Basic se počítá do limitu).
 
 Chybí-li konektor (Exa/Firecrawl/DirectCase nepřipojen) → řekni to uživateli hned a nabídni omezený režim s explicitním upozorněním „zdroje nebyly nezávisle ověřeny".
 
@@ -68,10 +68,16 @@ Deleší report ulož jako dokument (Word/MD), krátký nech v chatu.
 ## Speciální režimy
 
 - **`/hloubkovy-research verify <tvrzení>`** — ověř JEDNO konkrétní tvrzení/citaci (existuje ten judikát? platí ještě ta cena? je ta firma v insolvenci?). Výstup: POTVRZENO / VYVRÁCENO / NELZE OVĚŘIT + důkaz.
-- **`/hloubkovy-research firma <název/IČO>`** — rychlá prověrka: OR výpis (DirectCase), insolvence, web, reference, média (Exa+Firecrawl). Výstup: profil + red flags.
+- **`/hloubkovy-research firma <název/IČO>`** — rychlá prověrka: OR výpis (DirectCase `search_company`), insolvence, web, reference, média (Exa+Firecrawl). Výstup: profil + red flags.
+- **`/hloubkovy-research citace <dokument>`** — kontrola VŠECH citací v hotovém dokumentu (podání, stanovisko, memorandum) před odesláním. U každé citace:
+  1. **Existence.** Rozhodnutí: `search_identifier` (sp. zn., ECLI, č. j.) a pak `get_document`; soud, datum a spisová značka musí sedět. Paragraf: `get_law_detail` k rozhodnému dni.
+  2. **Obsah.** Doslovná citace se musí v textu najít doslovně. Parafráze musí odpovídat tomu, co rozhodnutí skutečně říká (ne obiter dictum vydávané za nosný důvod, ne odlišné stanovisko).
+  3. **Verdikt per citace:** OK / NESEDÍ (co přesně) / NENALEZENO. NENALEZENO je chyba, žádný mírnější režim: citaci odstranit nebo označit `[neověřeno]`. Úryvek z vyhledávače ani sekundární zdroj (komentář, článek) existenci rozhodnutí neprokazuje.
+
+  Výstup: tabulka citací (citace | verdikt | důkaz) + seznam oprav. `search_identifier` je nejlevnější nástroj DirectCase, takže kontrola nestojí kvótu AI searchů.
 
 ## Právní kontext (pro AK)
 
 Tento skill NEnahrazuje právní rešerši v odpovědnosti advokáta — je to nástroj. Právní závěry z researche podléhají kontrole advokáta (zák. č. 85/1996 Sb.). U právních témat vždy nabídni navazující použití DirectCase skillů (revize-smlouvy, kontrola-souladu…).
 
-<!-- Origin: fork GrowLead research-loop agent (agents-and-skills/skills/research/research-loop) | Adaptace: 2026-07-14 pro ak-sladek — Cowork skill místo CLI agenta, Exa+Firecrawl+DirectCase routing, právní anti-halucinace vrstva | Inspiration: interní -->
+<!-- Origin: fork GrowLead research-loop agent (agents-and-skills/skills/research/research-loop) | Adaptace: 2026-07-14 pro ak-sladek — Cowork skill místo CLI agenta, Exa+Firecrawl+DirectCase routing, právní anti-halucinace vrstva | Updated: 2026-10-16 (režim citace, search_company místo search_identifier pro IČO, limity v references/directcase-limity.md) | Inspiration: interní, https://github.com/anthropics/claude-for-legal/pull/127 (myšlenka cite-check, text vlastní) -->

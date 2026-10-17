@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "strana": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "typ",
+        "radek1",
+        "radek2",
+        "podpis"
+      ],
+      "properties": {
+        "typ": {
+          "type": "string",
+          "enum": [
+            "FO",
+            "PO"
+          ],
+          "description": "Fyzická nebo právnická osoba."
+        },
+        "radek1": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "FO: jméno, příjmení a datum narození; PO: název a IČ."
+        },
+        "radek2": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "FO: trvale bytem; PO: se sídlem, úplná adresa."
+        },
+        "radek3": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Např. zápis PO v obchodním rejstříku, soud, oddíl a vložka."
+        },
+        "radek4": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Zastoupení a způsob jednání za PO, případně zmocněnec FO."
+        },
+        "radek5": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Další identifikační údaj, jinak null."
+        },
+        "podpis": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "description": "Jméno FO nebo název PO v podpisovém bloku."
+        },
+        "podpis_zastupce": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Jméno a funkce podepisujícího zástupce, u PO povinné; ověřit způsob jednání."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "typ": {
+                "const": "PO"
+              }
+            },
+            "required": [
+              "typ"
+            ]
+          },
+          "then": {
+            "required": [
+              "podpis_zastupce"
+            ],
+            "properties": {
+              "podpis_zastupce": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "\\S",
+                "description": "Jméno a funkce zástupce PO."
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "title": "Uznání dluhu a dohoda o splátkách",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "veritel",
+    "dluznik",
+    "duvod",
+    "castka",
+    "jistina",
+    "splatky",
+    "ucet",
+    "rok"
+  ],
+  "properties": {
+    "veritel": {
+      "$ref": "#/$defs/strana"
+    },
+    "dluznik": {
+      "$ref": "#/$defs/strana"
+    },
+    "duvod": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Určitý právní důvod, titul a vznik dluhu, např. smlouva, datum, poskytnuté plnění, původní splatnost. Samotné číslo faktury bez popisu nestačí."
+    },
+    "castka": {
+      "type": "string",
+      "pattern": "^(?!0,00$)(?:0|[1-9][0-9]{0,2}(?:\\.[0-9]{3})*),[0-9]{2}$",
+      "description": "Celková uznaná částka včetně níže vyčísleného příslušenství; musí odpovídat součtu splátek i jistiny s příslušenstvím."
+    },
+    "jistina": {
+      "type": "string",
+      "pattern": "^(?:0|[1-9][0-9]{0,2}(?:\\.[0-9]{3})*),[0-9]{2}$",
+      "description": "Uznaná jistina, nezáporná. S vyčísleným příslušenstvím musí dát castka."
+    },
+    "prislusenstvi": {
+      "type": "array",
+      "default": [],
+      "description": "Jen výslovně uznávané, již vyčíslené příslušenství. Budoucí úroky do součtu nepatří.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "duvod",
+          "castka"
+        ],
+        "properties": {
+          "duvod": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Druh, právní důvod, základ výpočtu, sazba a přesné období vyčísleného příslušenství."
+          },
+          "castka": {
+            "type": "string",
+            "pattern": "^(?!0,00$)(?:0|[1-9][0-9]{0,2}(?:\\.[0-9]{3})*),[0-9]{2}$",
+            "description": "Částka bez Kč, např. 12.345,67. Přesné haléře, bez desetinného floatu. Musí být kladná."
+          }
+        }
+      }
+    },
+    "splatky": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Všechny splátky uznané částky, přísně vzestupně dle splatnosti. Součet se porovnává v celých haléřích.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "castka",
+          "splatnost"
+        ],
+        "properties": {
+          "castka": {
+            "type": "string",
+            "pattern": "^(?!0,00$)(?:0|[1-9][0-9]{0,2}(?:\\.[0-9]{3})*),[0-9]{2}$",
+            "description": "Částka bez Kč, např. 12.345,67. Přesné haléře, bez desetinného floatu. Musí být kladná."
+          },
+          "splatnost": {
+            "type": "string",
+            "pattern": "^[0-9]{2}\\.[0-9]{2}\\.[0-9]{4}$",
+            "description": "Kalendářně platné datum DD.MM.RRRR, např. 30.11.2026; skutečnou platnost ověřuje gate."
+          }
+        }
+      }
+    },
+    "ucet": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S",
+      "description": "Účet Věřitele pro úhradu splátek."
+    },
+    "vs": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]{0,10}$",
+      "description": "Variabilní symbol jako text do deseti číslic; lze vynechat."
+    },
+    "ztrata_vyhody_splatek": {
+      "type": "boolean",
+      "default": true,
+      "description": "Sjednat oprávnění Věřitele požadovat celý zbytek podle § 1931 OZ; vyžaduje včasnou doručenou výzvu, není automatické."
+    },
+    "urok_z_prodleni": {
+      "type": "boolean",
+      "default": true,
+      "description": "Zahrnout poučení o zákonném úroku při novém prodlení. False vynechá odstavec, nepromíjí zákonné nároky. Pokračující úročení z dosavadního prodlení během řádného splácení vzor nesjednává (§ 1973 OZ)."
+    },
+    "notarsky_zapis": {
+      "type": "boolean",
+      "default": false,
+      "description": "Požadavek přímé vykonatelnosti: gate varuje, tento dokument není notářským ani exekutorským zápisem."
+    },
+    "rok": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "Rok podpisu. Místo a den podpisu se doplní ručně."
+    }
+  }
+}

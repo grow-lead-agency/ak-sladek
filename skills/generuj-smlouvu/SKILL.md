@@ -29,7 +29,7 @@ Uživatel dodá fakta případu volným textem, nebo přiloží podklady (výpis
 - **Výplatní účet prodávajícího** (č.ú.) — POVINNÝ, bez něj úschovu nelze sestavit
 
 ### Krok 2 — KYC ověření (s DirectCase konektorem)
-Pokud je připojen DirectCase MCP, ověř strany v obchodním rejstříku (`search_company` / `search_identifier`):
+Pokud je připojen DirectCase MCP, ověř strany v obchodním rejstříku (`search_company` podle IČO nebo názvu):
 existence, sídlo, statutární orgán, **způsob jednání** (samostatně × společně!), insolvence.
 Nesoulad → upozorni PŘED generováním. Bez konektoru výslovně uveď, že údaje nebyly nezávisle ověřeny.
 
@@ -54,12 +54,24 @@ Vrať uživateli oba dokumenty + shrnutí: co bylo vygenerováno, jaké hodnoty 
 
 ## Další vzory (render_doc.py — jednotlivé dokumenty s gates)
 
-| Vzor | Render | Kódový gate |
-|---|---|---|
-| `vzory/plna-moc` | `scripts/render_doc.py vzory/plna-moc data.json out/` | katastr → vynucen úředně ověřený podpis |
-| `vzory/predzalobni-vyzva` | `scripts/render_doc.py vzory/predzalobni-vyzva data.json out/` | **§142a: lhůta < 7 dnů = STOP**; povinná doručovací adresa; připomenutí odeslat ≥7 dnů před žalobou |
+Postup u všech: fakta → JSON podle `vzory/<vzor>/schema.json` → `python scripts/render_doc.py vzory/<vzor> data.json out/`.
+Gate při chybě (chybějící povinný údaj, porušení zákonné podmínky) generování ZASTAVÍ a vypíše proč; varování (⚠) předej advokátovi. Data piš klidně ISO (`2026-11-30`), do textu se převedou na `30. 11. 2026`.
 
-Texty těchto vzorů jsou návrh GrowLead v house stylu — JUDr. Sládek je při prvním použití zreviduje a případné úpravy se zapíší do šablony (pak jsou to jeho vzory).
+| Vzor | Kódový gate (STOP) | Hlavní varování |
+|---|---|---|
+| `plna-moc` | chybí rozsah zmocnění | katastr → vynucen úředně ověřený podpis |
+| `predzalobni-vyzva` | **§ 142a: lhůta < 7 dnů**, chybí doručovací adresa | odeslat ≥ 7 dnů před žalobou |
+| `uznani-dluhu` | chybí důvod či výše dluhu, **součet splátek ≠ dluh**, splátky mimo pořadí | písemnost a podpis dlužníka (§ 2053), promlčení § 639/§ 641, není exekučním titulem |
+| `dohoda-o-narovnani` | chybí sporné právo, nové plnění, částka či splatnost | rozsah konečného vypořádání (§ 1905), forma (§ 1906), nemovitost → vklad |
+| `smlouva-o-smlouve-budouci-kupni` | chybí předmět dle LV, cena, termín výzvy či podpisu, typ a výše zálohy/závdavku | záloha do úschovy, závdavek (§ 1808), § 1788 |
+| `rezervacni-smlouva` | chybí doba, poplatek nebo jeho osud | spotřebitel a propadnutí poplatku, zprostředkování (zák. 39/2020) |
+| `najemni-smlouva-byt` (+ předávací protokol) | **jistota > 3× nájemné (§ 2254)**, doba určitá bez konce, chybí nájemné | ujednání v neprospěch nájemce, vyúčtování služeb (zák. 67/2013) |
+| `vyzva-najemci` | chybí výčet dluhu, součet nebo lhůta | prokazatelné doručení, přiměřenost lhůty |
+| `vypoved-najmu-bez-vypovedni-doby` | **dluh < 3 měsíce**, chybí předchozí výzva nebo její dojití, lhůta k nápravě neuplynula | poučení § 2286 a § 2290 vždy v textu, hmotněprávní lhůta |
+| `zastavni-smlouva-nemovitost` | chybí zajišťovaný dluh, zástava dle LV, strany | vklad + ověřené podpisy, zástavce ≠ dlužník, zákaz zcizení (§ 1761) |
+| `smlouva-o-pravnich-sluzbach` | chybí předmět nebo odměna | ADR u ČAK pro spotřebitele, AI doložka, smlouva na dálku |
+
+**Stav vzorů:** plná moc a předžalobní výzva i vzory od v0.9 jsou návrh GrowLead v house stylu (`vzory/<vzor>/meta.json`, `stav: navrh-growlead`). Render u nich vždy připomene „vzor dosud neschválen kanceláří". Po revizi JUDr. Sládkem se stav přepne na `schvaleno-kanceari` a od té chvíle jsou to vzory kanceláře. Formát (písmo, číslování, patička s názvem listiny, podpisy) se dědí ze šablony kanceláře a hlídá ho zámek formátu při každém nasazení.
 
 ## Eskalace (Escalation-Router)
 
@@ -69,6 +81,7 @@ PŘED draftováním zkontroluj [`references/eskalace.md`](../../references/eskal
 
 - **Advokátní úschova**: zákaz hotovostních vkladů/výběrů z účtu úschovy; jeden účet = jedna úschova; úschova se hlásí do Elektronické knihy úschov ČAK (před přijetím, po přijetí, po vyplacení). Připomeň uživateli EKÚ hlášení.
 - **Katastr**: k elektronickému vkladu je nutná vkladová listina s úředně ověřenými podpisy; prosté skeny katastr zamítá.
+- **Hotovost max. 270.000,00 Kč** (zákon č. 254/2004 Sb., § 4; sčítají se platby téže osobě za jeden den): kupní smlouva počítá se zálohou v hotovosti, vyšší záloha = render STOP. Vyšší záloha jde bezhotovostně nebo do úschovy, úpravu textu posoudí advokát.
 - Chybí-li povinný údaj → **zeptej se, nikdy nedopĺňuj odhadem** (jde o právní dokument).
 - Judikaturu/§ cituj jen s ověřeným identifikátorem z DirectCase; bez konektoru citace označ jako neověřené.
 - **Datum-disciplína**: u znění zákonů přes DirectCase používej `date` parametr (temporal validity) a do výstupu uveď, ke kterému dni znění platí — legislativa úschov/advokacie se v 2026 měnila. Pro výpočet lhůt (§142a předžalobní výzva, lhůty úschovy) ověř aktuální datum přes DirectCase `get_current_time`, nespoléhej na paměť modelu.

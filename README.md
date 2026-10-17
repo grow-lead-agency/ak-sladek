@@ -1,8 +1,11 @@
 # ak-sladek — AI plugin pro AK Sládek
 
+> **Licence:** všechna práva vyhrazena, viz [LICENSE](LICENSE). Součásti třetích stran (9 skillů DirectCase, MIT) viz [NOTICE](NOTICE).
+> Text and data mining reserved under Art. 4(3) Directive (EU) 2019/790 and § 39c(2) Czech Copyright Act No. 121/2000 Coll. Not licensed for AI training. All rights reserved. See LICENSE.
+
 Plugin pro Claude (Cowork / Claude Code) na míru advokátní kanceláři **JUDr. Petr Sládek** (realitní právo, advokátní úschovy). Kompletní balík: generování a formátování dokumentů z vlastních vzorů kanceláře + 9 právních workflow skillů (DirectCase, MIT) + top research agent.
 
-## Skilly (14)
+## Skilly (15)
 
 **Taxonomie podle použití** (plná mapa situace → skill: [TAHAK.md](TAHAK.md)):
 
@@ -10,6 +13,7 @@ Plugin pro Claude (Cowork / Claude Code) na míru advokátní kanceláři **JUDr
 |---|---|
 | 🏁 Nastavení | nastaveni-kancelare |
 | 📄 Tvorba | generuj-smlouvu · pravni-sablony |
+| 🧮 Výpočty | pravni-vypocty |
 | 🎨 Formát | formatuj-smlouvu |
 | 🔍 Kontrola | revize-smlouvy · triage-nda · kontrola-podpis · kontrola-souladu |
 | 🕵️ Prověrky | hloubkovy-research · kontrola-dodavatele |
@@ -20,11 +24,12 @@ Plugin pro Claude (Cowork / Claude Code) na míru advokátní kanceláři **JUDr
 |---|---|---|
 | Nastavení kanceláře | `/nastaveni-kancelare` | **Spustit první.** Cold-start interview (15 min) → playbook kanceláře do `legal.local.md`. Bez něj jsou výstupy generické. |
 | Právní šablony | `/pravni-sablony` | Knihovna úloh (žaloba, stanovisko, memorandum, dodatek, anonymizace…) — upgrade šablon ze semináře AI pro právníky (11/2025) + routing na specializované skilly. |
-| Generuj smlouvu | `/generuj-smlouvu` | Kupní smlouva + úschova (pár) · plná moc · předžalobní výzva (kódový §142a gate). Fakta → JSON → deterministický render ze vzoru. AI nikdy nepíše právní text. |
+| Generuj smlouvu | `/generuj-smlouvu` | Kupní smlouva + úschova (pár) · plná moc · předžalobní výzva (kódový §142a gate) · uznání dluhu · narovnání · smlouva o smlouvě budoucí kupní · rezervační smlouva · zástavní smlouva · nájemní smlouva k bytu · výzva nájemci · výpověď bez výpovědní doby · smlouva o právních službách. Fakta → JSON → deterministický render ze vzoru s kódovými pojistkami. AI nikdy nepíše právní text. |
+| Právní výpočty | `/pravni-vypocty` | Úrok z prodlení, konec lhůty (víkendy, svátky), promlčení, soudní poplatek, odměna dle advokátního tarifu. Počítá skript, ne AI. |
 | Formátuj smlouvu | `/formatuj-smlouvu` | Cizí/rozbitý dokument → jednotný formát kanceláře (rebuild-and-restyle, text doslovně zachován, house rules dle diktátu JUDr. Sládka). |
 | Hloubkový research | `/hloubkovy-research` | **Univerzální research agent** (fork GrowLead research-loop) — Exa search + Firecrawl scrape + DirectCase pro právo. Každé tvrzení s citací reálně otevřeného zdroje. Režimy: research / verify / firma. Pro právní i neprávní témata. |
 
-### DirectCase pravo-skills v1.1.0 (import, MIT — viz LICENSE-directcase-pravo-skills)
+### DirectCase pravo-skills v1.1.0 (součást třetí strany, MIT, viz NOTICE)
 | Skill | Command | Co dělá |
 |---|---|---|
 | Revize smlouvy | `/revize-smlouvy` | Revize proti playbooku, redlines, Word s barevnými komentáři, KYC protistrany |
@@ -60,6 +65,10 @@ Plugin pro Claude (Cowork / Claude Code) na míru advokátní kanceláři **JUDr
 - `references/house-rules.md` — 7 formátovacích pravidel kanceláře (diktát JUDr. Sládka 14. 7. 2026).
 - `legal.local.example.md` — šablona playbooku pro DirectCase review skilly (zkopírovat jako `legal.local.md` + doplnit pozice kanceláře).
 - `CONNECTORS.md` — jak fungují `~~kategorie` zástupné symboly v DirectCase skillech.
+- `references/kontroly-podani.md` — 5 kontrol před každým podáním (příslušnost, § 142a, lhůty a promlčení, poplatky, forma).
+- `references/directcase-limity.md` — limity DirectCase a volba nástroje (jediné místo s čísly, mění se).
+- `references/eskalace.md` — kdy AI nedraftuje a předává advokátovi.
+- `references/klientska-komunikace.md` — klientská komunikace v souladu s etickým kodexem ČAK.
 
 ## Údržba
 
@@ -67,4 +76,4 @@ Plugin spravuje GrowLead (Petr Rohan). Zdroj: repo `agents-and-skills`, `skills/
 Instalace: viz [INSTALL.md](INSTALL.md).
 
 ---
-*Verze 0.6.1 (2026-07-14) — audit skill-and-agent-master: 30 oprav (MCP tool reference vs. oficiální DirectCase API, rate-limit logika 1×/konverzaci, get_entitlements/get_current_time). Předchozí: + vzory plná moc a předžalobní výzva (kódové gates §142a/katastr), + references/eskalace.md (Escalation-Router), + datum-disciplína DirectCase; + nastaveni-kancelare (cold-start interview, Anthropic pattern), + pravni-sablony (upgrade Sládkových seminárních šablon); + hloubkovy-research (fork research-loop), + 9 DirectCase pravo-skills (MIT, origin-tracked, review OK), + Firecrawl/Exa konektory. House rules v0.3 zachovány. Pokrytí generátoru: převod nemovitosti (KS+SÚ pár); varianty (hypotéka, zprostředkovatel, SJM) viz Omezení v SKILL.md.*
+*Verze 0.9.0 (2026-10-16) — 9 nových vzorů v house stylu s kódovými pojistkami (stav: návrh k revizi kanceláří), skill `/pravni-vypocty`, katalog úloh v `pravni-sablony`, klientská komunikace dle kodexu ČAK, oprava patičky (název listiny místo „Kupní smlouva“), české formáty dat ve vzorech, zámek formátu kanceláře při nasazení. Předchozí: Verze 0.8.0 (2026-10-16) — aktualizace z upstreamů (DirectCase API: nové limity, `search_identifier` jen pro sp. zn., firmy přes `search_company`; `get_entitlements` max. 1× za konverzaci) + cherry-pick z externí knihovny právních úloh (kontroly před podáním, zadání ve 4 řádcích, nemovitostní úlohy v pravni-sablony, bezpečné používání AI) + režim `/hloubkovy-research citace`. Předchozí: Verze 0.6.1 (2026-07-14) — audit skill-and-agent-master: 30 oprav (MCP tool reference vs. oficiální DirectCase API, rate-limit logika 1×/konverzaci, get_entitlements/get_current_time). Předchozí: + vzory plná moc a předžalobní výzva (kódové gates §142a/katastr), + references/eskalace.md (Escalation-Router), + datum-disciplína DirectCase; + nastaveni-kancelare (cold-start interview, Anthropic pattern), + pravni-sablony (upgrade Sládkových seminárních šablon); + hloubkovy-research (fork research-loop), + 9 DirectCase pravo-skills (MIT, origin-tracked, review OK), + Firecrawl/Exa konektory. House rules v0.3 zachovány. Pokrytí generátoru: převod nemovitosti (KS+SÚ pár); varianty (hypotéka, zprostředkovatel, SJM) viz Omezení v SKILL.md.*

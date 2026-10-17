@@ -13,7 +13,15 @@
 | Prodej nemovitosti — potřebuju kupní smlouvu + úschovu | `/generuj-smlouvu` (jeden diktát → oba dokumenty z vašich vzorů) |
 | Potřebuju plnou moc | `/generuj-smlouvu` (vzor plná moc) |
 | Dlužník neplatí — předžalobní výzva | `/generuj-smlouvu` (vzor; hlídá lhůtu 7 dnů dle § 142a) |
+| Dlužník uzná dluh a bude splácet | `/generuj-smlouvu` (uznání dluhu; hlídá, že splátky dají dohromady celý dluh) |
+| Spor chceme ukončit dohodou | `/generuj-smlouvu` (dohoda o narovnání) |
+| Před prodejem: smlouva o smlouvě budoucí, rezervace, zástava | `/generuj-smlouvu` (záloha nebo závdavek, osud rezervačního poplatku, vklad zástavy) |
+| Pronájem bytu: smlouva, výzva nájemci, výpověď bez výpovědní doby | `/generuj-smlouvu` (hlídá jistotu max. 3× nájemné, předchozí výzvu a 3 měsíce dluhu, poučení nájemce) |
+| Nový klient: smlouva o právních službách | `/generuj-smlouvu` (včetně doložky o AI a informace o ČAK pro spotřebitele) |
+| Kolik je úrok z prodlení, kdy končí lhůta, soudní poplatek, odměna dle tarifu | `/pravni-vypocty` (počítá skript, ne AI; svátky i víkendy) |
 | Jiný dokument (žaloba, stanovisko, memorandum, dodatek, uznání dluhu…) | `/pravni-sablony` |
+| Žaloba, odpor, odvolání: ať nic nechybí | `/pravni-sablony` (sám projde 5 kontrol: příslušnost, výzva dle § 142a, lhůty a promlčení, poplatky, forma podání) |
+| Prověrka LV, checklist koupě, smlouva o smlouvě budoucí, zástavní smlouva, výmaz zástavy | `/pravni-sablony` (sekce Nemovitosti a zajištění) |
 
 ## 🎨 Formát a úprava
 | Situace | Skill |
@@ -28,6 +36,7 @@
 | Přišla NDA — podepsat, nebo pozor? | `/triage-nda` (zelená/žlutá/červená za pár minut) |
 | Kdo za firmu smí podepsat? Sedí podpisy? | `/kontrola-podpis` (ověří v obchodním rejstříku) |
 | Je tenhle záměr v souladu s GDPR/regulací? | `/kontrola-souladu` |
+| Mám hotové podání nebo stanovisko: existují všechny citované judikáty a sedí citace? | `/hloubkovy-research citace` (každou spisovou značku dohledá v DirectCase, co nenajde, označí) |
 
 ## 🕵️ Prověrky a rešerše
 | Situace | Skill |
@@ -44,6 +53,12 @@
 | Zítra jednání — potřebuju podklady a strategii | `/priprava-jednani` |
 | Rutinní právní odpověď (výmaz údajů, dotaz dodavatele…) | `/pravni-odpoved` |
 | Ranní přehled / rešerše tématu / krizový režim | `/prehled-pravni` |
+
+## 🔒 Bezpečné používání AI v kanceláři
+- **Mlčenlivost (§ 21 zákona o advokacii):** do Clauda dávejte údaje klientů jen v rozsahu nutném pro úkol. Rešerše a obecné dotazy pište anonymně („klient", „společnost A").
+- **Trénování:** záleží na typu účtu. U osobního plánu (Claude Pro, Max) vypněte v nastavení soukromí použití konverzací ke zlepšování modelu. Firemní plány (Team, Enterprise) data k trénování podle podmínek Anthropic standardně nepoužívají.
+- **Klienti:** ve smlouvě o poskytování právních služeb je vhodné jednou větou uvést, že kancelář používá nástroje AI pod dohledem advokáta (text doložky připraví `/pravni-sablony`).
+- **Judikatura:** rozhodnutí, které jste neviděli v DirectCase nebo na webu soudu, do podání nepatří. Na kontrolu je `/hloubkovy-research citace`.
 
 ---
 **Zlaté pravidlo:** Všechno, co z pluginu vyleze, je NÁVRH — finální slovo má vždy advokát. AI nikdy neposílá nic klientovi.

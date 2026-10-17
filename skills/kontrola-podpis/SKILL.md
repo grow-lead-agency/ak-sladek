@@ -39,7 +39,7 @@ Před zahájením přípravy podpisu ověř, zda je dostupný **DirectCase konek
 
 Tento krok přeskoč pouze tehdy, byl-li už proveden v této konverzaci.
 
-> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — je vždy dostupný a nezávisí na stavu registru konektorů. Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
+> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — nezávisí na stavu registru konektorů, ale na Basic se počítá do kvóty, proto ho volej nejvýš 1× za konverzaci (viz [`references/directcase-limity.md`](../../references/directcase-limity.md)). Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
 
 ## Použití
 
@@ -70,7 +70,7 @@ Porovnej zjištěné údaje s podpisovým blokem ve smlouvě:
 - **Pokud podepisuje prokurista** → ověř rozsah prokury podle zápisu v OR.
 - **Pokud nelze oprávnění z OR ověřit** (např. nový jednatel ještě není zapsaný) → doporuč před podpisem vyžádat aktuální výpis z OR nebo plnou moc přímo od protistrany.
 
-> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` (statutární orgán, způsob jednání, prokura), `search_identifier` (přesné hledání podle IČO), `search_company_documents` (sbírka listin — zápisy o volbě, plné moci), `convert_file_to_markdown` (přečtení konkrétního dokumentu ze sbírky listin — funguje jen pro důvěryhodné právní domény; **PDF mimo tyto domény převáděj lokálně**, ne přes DirectCase).
+> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` (podle `ico` nebo `nazev`: statutární orgán, způsob jednání, prokura), `search_company_documents` (sbírka listin — zápisy o volbě, plné moci), `convert_file_to_markdown` (přečtení konkrétního dokumentu ze sbírky listin — funguje jen pro důvěryhodné právní domény; **PDF mimo tyto domény převáděj lokálně**, ne přes DirectCase).
 
 ## Pracovní postup
 
@@ -169,4 +169,4 @@ Pokud OR vyžaduje **dva jednatele společně**, upozorni uživatele, že jeden 
 2. **Ověř oprávnění** — Ujisti se, že každý signatář je oprávněn zavazovat svou organizaci (statutární orgán nebo osoba s plnou mocí). KYC v OR je rychlejší a levnější než pozdější spor o platnost smlouvy kvůli neoprávněnému podpisu.
 3. **Uchovej kopii** — Podepsané kopie ihned po podpisu ulož v ~~cloudovém úložišti nebo ~~CLM.
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (SPDX-License-Identifier: MIT, third-party/directcase-pravo-skills/LICENSE, viz NOTICE) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->

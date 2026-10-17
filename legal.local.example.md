@@ -105,3 +105,11 @@ Tyto situace **vždy** eskaluj seniornímu právníkovi nebo externímu advokát
 - **Jurisdikce:** [např. pouze ČR / ČR + EU / globální]
 - **Regulovaný subjekt:** [např. ne / ČNB / ÚOOÚ jako zpracovatel / jiné]
 - **Apetit rizika:** [konzervativní / vyvážený / agresivní]
+
+---
+
+## Bezpečnost a AI (vyplní /nastaveni-kancelare, Blok 6)
+
+- **Trénování na konverzacích:** [osobní plán: vypnuto ano/ne, datum kontroly / firemní plán: nepoužívá se podle podmínek služby]
+- **AI doložka ve smlouvě o poskytování právních služeb:** [ano, znění: … / ne]
+- **Data klientů v Claude:** [např. ano pro generování smluv a revize; rešerše a obecné dotazy jen anonymně]

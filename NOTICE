@@ -1,0 +1,26 @@
+NOTICE (součásti třetích stran / third-party components)
+
+Tento repozitář obsahuje tyto součásti třetích stran. Na vše ostatní se vztahuje LICENSE.
+This repository contains the following third-party components. Everything else is governed by LICENSE.
+
+1. DirectCase pravo-skills v1.1.0
+   Licence / License: MIT (SPDX-License-Identifier: MIT)
+   Copyright (c) 2026 DirectCase
+   Plné znění / Full text: third-party/directcase-pravo-skills/LICENSE (nezměněno / unchanged)
+   Zdroj / Source: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs
+     (balíček / package: pravo_skills_v1_1_0_new_d0f1022b72.zip, Last-Modified 9. 7. 2026)
+   Součásti / Components (9 skillů):
+     skills/revize-smlouvy, skills/triage-nda, skills/kontrola-podpis, skills/kontrola-dodavatele,
+     skills/kontrola-souladu, skills/priprava-jednani, skills/posouzeni-rizika,
+     skills/pravni-odpoved, skills/prehled-pravni
+     a soubory / and files: CONNECTORS.md, legal.local.example.md (doplněna sekce Bezpečnost a AI)
+   Úpravy / Modifications (GrowLead, 2026-07-14 a 2026-10-16):
+     opravy odkazů na nástroje DirectCase MCP podle oficiální dokumentace (neexistující nástroje,
+     limity 1× za konverzaci, search_company místo search_identifier pro IČO, limity tierů
+     přesunuty do references/directcase-limity.md, get_entitlements max. 1× za konverzaci),
+     české texty a napojení na reference pluginu. Upravené soubory zůstávají pod MIT.
+     Fixes of DirectCase MCP tool references per the official documentation, Czech wording and
+     links to plugin references. Modified files remain under MIT.
+
+Výhrada TDM v souboru LICENSE neomezuje oprávnění plynoucí z licencí těchto součástí.
+The TDM reservation in LICENSE does not restrict rights granted by these components' licenses.

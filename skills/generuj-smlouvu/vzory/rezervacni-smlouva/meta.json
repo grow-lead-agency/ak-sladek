@@ -1,0 +1,19 @@
+{
+  "nazev": "Rezervační smlouva k nemovitosti",
+  "stav": "navrh-growlead",
+  "verze": "0.9.0",
+  "pravni_zaklad": [
+    "§ 1746 odst. 2 OZ",
+    "§ 1813 až 1815 OZ",
+    "§ 2048 až 2051 OZ",
+    "§ 1982 a 1987 OZ",
+    "§ 9 až 12 a § 14 zákona č. 39/2020 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89, https://www.zakonyprolidi.cz/cs/2020-39",
+  "otevrene_otazky": [
+    "Je skutečně vlastníkem zavázaná osoba a odpovídá rozsah rezervace aktuálnímu LV?",
+    "Má být poplatek započten, vrácen, nebo může sloužit na sjednanou pokutu, a je výše přiměřená?",
+    "Jde o spotřebitelský vztah a obstojí sankce podle § 1813 až 1815 OZ?",
+    "Není rezervace podle skutečného obsahu zprostředkováním a jsou oddělená smlouva a poučení v souladu se zákonem č. 39/2020 Sb.?"
+  ]
+}

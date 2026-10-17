@@ -1,0 +1,26 @@
+{
+  "nazev": "Nájemní smlouva k bytu",
+  "pravni_zaklad": [
+    "§ 2235 a § 2237 OZ",
+    "§ 2239 odst. 1 OZ",
+    "§ 2242 až § 2243 OZ",
+    "§ 2246 až § 2247 OZ",
+    "§ 2251 OZ",
+    "§ 2254 OZ",
+    "§ 2257 až § 2259 OZ",
+    "§ 2263 OZ",
+    "§ 2272 až § 2275 OZ",
+    "§ 2285 až § 2286 OZ",
+    "§ 2291 až § 2293 OZ",
+    "§ 2 až § 8 zákona č. 67/2013 Sb.",
+    "§ 2 až § 6 nařízení vlády č. 308/2015 Sb."
+  ],
+  "overeno": "2026-10-16, https://www.zakonyprolidi.cz/cs/2012-89; https://www.zakonyprolidi.cz/cs/2013-67/zneni-20260101; https://www.zakonyprolidi.cz/cs/2015-308/zneni-20260101",
+  "otevrene_otazky": [
+    "Jakou sazbu a metodu výpočtu úroku z jistoty kancelář používá pro konkrétní nájem?",
+    "Jsou služby, rozúčtování, identifikace bytu a předávací protokol úplné pro konkrétní dům?",
+    "Má se u konkrétního nájmu upravit obnovení podle § 2285 OZ nebo období první platby?"
+  ],
+  "stav": "navrh-growlead",
+  "verze": "0.9.0"
+}

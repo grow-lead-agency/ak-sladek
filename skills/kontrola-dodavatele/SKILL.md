@@ -39,7 +39,7 @@ Před zahájením kontroly dodavatele ověř, zda je dostupný **DirectCase kone
 
 Tento krok přeskoč pouze tehdy, byl-li už proveden v této konverzaci.
 
-> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — je vždy dostupný a nezávisí na stavu registru konektorů. Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
+> ⚙ **Pro AI agenta:** Stav konektoru zjisti přes `mcp__mcp-registry__search_mcp_registry` s klíčovými slovy `["directcase", "obchodní rejstřík"]` a najdi záznam „DirectCase CZ". Pokud `connected: true` + `enabledInChat: false`, zavolej `mcp__mcp-registry__suggest_connectors` s `directoryUuid` z výsledku. Otázku uživateli pokládej přes `AskUserQuestion`. Pro spolehlivé ověření, že DirectCase je skutečně dostupný a jaký má tier, lze přímo zavolat nástroj `get_entitlements` — nezávisí na stavu registru konektorů, ale na Basic se počítá do kvóty, proto ho volej nejvýš 1× za konverzaci (viz [`references/directcase-limity.md`](../../references/directcase-limity.md)). Plné znění technického postupu viz [SKILL.md → Krok 0](SKILL.md).
 
 ## Spuštění
 
@@ -109,7 +109,7 @@ Tyto informace zahrň do přehledu dodavatele a **označ červeně**, pokud zjis
 
 **Pravidlo: `search_caselaw_parallel` lze v rámci jedné kontroly (konverzace) zavolat jen JEDNOU.** Nástroj bere pole `queries[]` — tematicky příbuzné dotazy (spory, insolvence, sankční řízení) slouč do jednoho volání s více položkami v poli.
 
-> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` (obchodní rejstřík: IČO, sídlo, statutární orgán, způsob jednání, stav likvidace/insolvence), `search_identifier` (přesné hledání podle IČO), `search_company_documents` (sbírka listin: účetní závěrky, výroční zprávy, dokumenty z insolvenčního rejstříku), `convert_file_to_markdown` (přečtení konkrétního dokumentu ze sbírky listin pro finanční analýzu — funguje jen pro důvěryhodné právní domény; **PDF mimo tyto domény převáděj lokálně**, ne přes DirectCase), `search_caselaw_parallel` (judikatura k subjektu — spory, insolvence; **1× za konverzaci**, víc dotazů slouč do pole `queries[]`). **Rate limit:** Basic (free) = 20 volání/nástroj celkem, Pro = 25/den (parallel search) resp. 200/den (lehké nástroje). Pro follow-up dotazy preferuj `search_identifier` místo dalšího `search_caselaw_parallel` volání.
+> ⚙ **Pro AI agenta — konkrétní nástroje DirectCase:** `search_company` (obchodní rejstřík: IČO, sídlo, statutární orgán, způsob jednání, stav likvidace/insolvence), `search_company_documents` (sbírka listin: účetní závěrky, výroční zprávy; stav insolvence vrací `search_company`, konkrétní insolvenční listiny ověř v insolvenčním rejstříku), `convert_file_to_markdown` (přečtení konkrétního dokumentu ze sbírky listin pro finanční analýzu — funguje jen pro důvěryhodné právní domény; **PDF mimo tyto domény převáděj lokálně**, ne přes DirectCase), `search_caselaw_parallel` (judikatura k subjektu — spory, insolvence; **1× za konverzaci**, víc dotazů slouč do pole `queries[]`). **Rate limit:** viz [`references/directcase-limity.md`](../../references/directcase-limity.md). Konkrétní rozhodnutí nalezené v první rešerši ověřuj přes `search_identifier` (sp. zn.) a `get_document` místo dalšího `search_caselaw_parallel` volání.
 
 ### Krok 3: Sestavte přehled o stavu smluv
 
@@ -203,4 +203,4 @@ Vždy jasně uveďte, které zdroje byly prověřeny a které nikoli, aby uživa
 - Upozorněte na všechny smlouvy, kterým skončila platnost, ale mohou stále obsahovat přetrvávající závazky (mlčenlivost, odškodnění atd.)
 - Pokud se smlouva blíží ke konci platnosti (do 90 dnů), výrazně na to upozorněte
 
-<!-- Origin: DirectCase pravo-skills v1.1.0 (MIT, LICENSE-directcase-pravo-skills) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
+<!-- Origin: DirectCase pravo-skills v1.1.0 (SPDX-License-Identifier: MIT, third-party/directcase-pravo-skills/LICENSE, viz NOTICE) | Import: 2026-07-14 do ak-sladek pluginu, review bez adaptaci (Cowork-native reference OK) | Inspiration: https://www.directcase.ai/cz/cs/news/claude-legal-plugin-cs -->
